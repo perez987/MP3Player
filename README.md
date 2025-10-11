@@ -40,7 +40,7 @@ A simple SwiftUI app for macOS to play MP3 files.
 	
 3. Rifht button on a MP3 file to open it via Finder.
 
-### App is damaged and can't be opened
+## App is damaged and can't be opened
 
 If you see `App is damaged and can't be opened` when you open MP3Player for the first time, read [this](App-damaged.md).
 
