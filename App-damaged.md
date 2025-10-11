@@ -33,8 +33,6 @@ By clicking Open Anyway, macOS will ask again if you want to open the file, and 
 
 <img src="Images/xattr3.png" width="480px">
 
-<img src="Images/xattr4.png" width="480px">
-
 From this point on, Mp3Player will run without security prompts because macOS has removed the `com.apple.quarantine` attribute.
 
 ### `xattr` command line tool
