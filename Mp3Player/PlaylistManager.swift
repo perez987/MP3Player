@@ -23,7 +23,8 @@ class PlaylistManager: ObservableObject {
 			currentDirectorySecurityScopedURL = nil
 		}
 
-		tracks = [Track(url: url)]
+			// Load metadata for single file (only one file, so no rate limiting issue)
+		tracks = [Track(url: url, loadMetadata: true)]
 		currentIndex = 0
 		currentDirectoryPath = nil
 			// Clear directory bookmark since we're loading a single file
@@ -63,7 +64,9 @@ class PlaylistManager: ObservableObject {
 			}
 		}
 
-		tracks = mp3Files.sorted { $0.lastPathComponent < $1.lastPathComponent }.map { Track(url: $0) }
+			// Create tracks WITHOUT loading metadata initially to avoid rate limiting
+			// Metadata will be loaded only when the track is played
+		tracks = mp3Files.sorted { $0.lastPathComponent < $1.lastPathComponent }.map { Track(url: $0, loadMetadata: false) }
 		currentIndex = 0
 
 			// Store the directory path without "file://" prefix

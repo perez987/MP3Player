@@ -4,154 +4,162 @@ import Combine
 import AppKit
 
 class AudioPlayerManager: NSObject, ObservableObject {
-    @Published var isPlaying = false
-    @Published var currentTime: TimeInterval = 0
-    @Published var duration: TimeInterval = 0
-    @Published var currentTrack: Track?
-    @Published var albumArt: NSImage?
+	@Published var isPlaying = false
+	@Published var currentTime: TimeInterval = 0
+	@Published var duration: TimeInterval = 0
+	@Published var currentTrack: Track?
+	@Published var albumArt: NSImage?
 
-    private var player: AVAudioPlayer?
-    private var timer: Timer?
-    private var currentSecurityScopedURL: URL?
+	private var player: AVAudioPlayer?
+	private var timer: Timer?
+	private var currentSecurityScopedURL: URL?
 
-    override init() {
-        super.init()
-    }
+	override init() {
+		super.init()
+	}
 
-    func play(track: Track) {
-            // Stop accessing previous security-scoped resource if any
-        if let previousURL = currentSecurityScopedURL {
-            previousURL.stopAccessingSecurityScopedResource()
-            currentSecurityScopedURL = nil
-        }
+	func play(track: Track) {
+			// Stop accessing previous security-scoped resource if any
+		if let previousURL = currentSecurityScopedURL {
+			previousURL.stopAccessingSecurityScopedResource()
+			currentSecurityScopedURL = nil
+		}
 
-        do {
-            let url = track.url
+		do {
+			let url = track.url
 
-                // Try to access as security-scoped resource
-                // This is safe to call even if it's not security-scoped
-            if url.startAccessingSecurityScopedResource() {
-                currentSecurityScopedURL = url
-            }
+				// Try to access as security-scoped resource
+				// This is safe to call even if it's not security-scoped
+			if url.startAccessingSecurityScopedResource() {
+				currentSecurityScopedURL = url
+			}
 
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.delegate = self
+			player = try AVAudioPlayer(contentsOf: url)
+			player?.delegate = self
 
-                // Prepare to play on a background queue to avoid blocking the main thread
-            let preparePlayer = player
-            DispatchQueue.global(qos: .background).async { [weak self] in
-                preparePlayer?.prepareToPlay()
+				// Prepare to play on a background queue to avoid blocking the main thread
+			let preparePlayer = player
 
-                DispatchQueue.main.async {
-                    guard let self = self, self.player === preparePlayer else { return }
+				// Load metadata in the background if not already loaded
+				// This happens when tracks are loaded from a directory without metadata
+			var trackWithMetadata = track
+			if !track.metadataLoaded {
+					// Metadata not loaded yet, load it now (one track at a time, no rate limiting)
+				trackWithMetadata = Track(url: url, loadMetadata: true)
+			}
 
-                    self.currentTrack = track
-                    self.albumArt = track.albumArt
-                    self.duration = self.player?.duration ?? 0
+			DispatchQueue.global(qos: .background).async { [weak self] in
+				preparePlayer?.prepareToPlay()
 
-                    self.player?.play()
-                    self.isPlaying = true
-                    self.startTimer()
-                }
-            }
+				DispatchQueue.main.async {
+					guard let self = self, self.player === preparePlayer else { return }
 
-                // Save security-scoped bookmark to UserDefaults
-            saveBookmark(for: url)
+					self.currentTrack = trackWithMetadata
+					self.albumArt = trackWithMetadata.albumArt
+					self.duration = self.player?.duration ?? 0
 
-        } catch {
-            print("Error playing track: \(error)")
-                // If we failed to play, stop accessing the resource
-            if let url = currentSecurityScopedURL {
-                url.stopAccessingSecurityScopedResource()
-                currentSecurityScopedURL = nil
-            }
-        }
-    }
+					self.player?.play()
+					self.isPlaying = true
+					self.startTimer()
+				}
+			}
 
-    private func saveBookmark(for url: URL) {
-        do {
-            let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-            UserDefaults.standard.set(bookmarkData, forKey: "lastPlayedTrackBookmark")
-            UserDefaults.standard.set(url.path, forKey: "lastPlayedTrack") // Keep for display purposes
-        } catch {
-            print("Error creating bookmark: \(error)")
-        }
-    }
+				// Save security-scoped bookmark to UserDefaults
+			saveBookmark(for: url)
 
-    func togglePlayPause() {
-        guard let player = player else { return }
+		} catch {
+			print("Error playing track: \(error)")
+				// If we failed to play, stop accessing the resource
+			if let url = currentSecurityScopedURL {
+				url.stopAccessingSecurityScopedResource()
+				currentSecurityScopedURL = nil
+			}
+		}
+	}
 
-        if player.isPlaying {
-            player.pause()
-            isPlaying = false
-            stopTimer()
-        } else {
-            player.play()
-            isPlaying = true
-            startTimer()
-        }
-    }
+	private func saveBookmark(for url: URL) {
+		do {
+			let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+			UserDefaults.standard.set(bookmarkData, forKey: "lastPlayedTrackBookmark")
+			UserDefaults.standard.set(url.path, forKey: "lastPlayedTrack") // Keep for display purposes
+		} catch {
+			print("Error creating bookmark: \(error)")
+		}
+	}
 
-    func stop() {
-        player?.stop()
-        player?.currentTime = 0
-        currentTime = 0
-        isPlaying = false
-        stopTimer()
-    }
+	func togglePlayPause() {
+		guard let player = player else { return }
 
-    func seek(to time: TimeInterval) {
-        player?.currentTime = time
-        currentTime = time
-    }
+		if player.isPlaying {
+			player.pause()
+			isPlaying = false
+			stopTimer()
+		} else {
+			player.play()
+			isPlaying = true
+			startTimer()
+		}
+	}
 
-    private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
-            guard let self = self, let player = self.player else { return }
-            self.currentTime = player.currentTime
-        }
-    }
+	func stop() {
+		player?.stop()
+		player?.currentTime = 0
+		currentTime = 0
+		isPlaying = false
+		stopTimer()
+	}
 
-    private func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
+	func seek(to time: TimeInterval) {
+		player?.currentTime = time
+		currentTime = time
+	}
 
-    var elapsedTime: String {
-        return formatTime(currentTime)
-    }
+	private func startTimer() {
+		timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
+			guard let self = self, let player = self.player else { return }
+			self.currentTime = player.currentTime
+		}
+	}
 
-    var remainingTime: String {
-        let remaining = duration - currentTime
-        return "-\(formatTime(remaining))"
-    }
+	private func stopTimer() {
+		timer?.invalidate()
+		timer = nil
+	}
 
-    private func formatTime(_ time: TimeInterval) -> String {
-        let minutes = Int(time) / 60
-        let seconds = Int(time) % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
+	var elapsedTime: String {
+		return formatTime(currentTime)
+	}
 
-    deinit {
-        stopTimer()
-            // Stop accessing security-scoped resource when deallocating
-        if let url = currentSecurityScopedURL {
-            url.stopAccessingSecurityScopedResource()
-        }
-    }
+	var remainingTime: String {
+		let remaining = duration - currentTime
+		return "-\(formatTime(remaining))"
+	}
+
+	private func formatTime(_ time: TimeInterval) -> String {
+		let minutes = Int(time) / 60
+		let seconds = Int(time) % 60
+		return String(format: "%02d:%02d", minutes, seconds)
+	}
+
+	deinit {
+		stopTimer()
+			// Stop accessing security-scoped resource when deallocating
+		if let url = currentSecurityScopedURL {
+			url.stopAccessingSecurityScopedResource()
+		}
+	}
 }
 
 extension AudioPlayerManager: AVAudioPlayerDelegate {
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        if flag {
-            isPlaying = false
-            stopTimer()
-            NotificationCenter.default.post(name: .trackFinished, object: nil)
-        }
-    }
+	func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+		if flag {
+			isPlaying = false
+			stopTimer()
+			NotificationCenter.default.post(name: .trackFinished, object: nil)
+		}
+	}
 }
 
 extension Notification.Name {
-    static let trackFinished = Notification.Name("trackFinished")
+	static let trackFinished = Notification.Name("trackFinished")
 }
-

@@ -44,6 +44,10 @@ A simple SwiftUI app for macOS to play MP3 files.
 
 If you see `App is damaged and can't be opened` when you open MP3Player for the first time, read [this](App-damaged.md).
 
+## Console Messages
+
+You may see various console messages when running the app in Xcode. Most of these are harmless system messages from macOS frameworks. For a detailed explanation of what each message means and which ones are safe to ignore, see [Console-messages.md](DOCS/Console-messages.md).
+
 ## Building
 
 Open `Mp3Player.xcodeproj` in Xcode and build the project.
