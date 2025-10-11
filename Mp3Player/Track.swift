@@ -42,15 +42,15 @@ struct Track: Identifiable, Equatable {
 						for item in metadata {
 							if let commonKey = item.commonKey {
 								if commonKey == .commonKeyTitle {
-									if let value = try? await item.load(.stringValue) {
+									if let value = try? await item.load(.value) as? String {
 										loadedTitle = value
 									}
 								} else if commonKey == .commonKeyArtist {
-									if let value = try? await item.load(.stringValue) {
+									if let value = try? await item.load(.value) as? String {
 										loadedArtist = value
 									}
 								} else if commonKey == .commonKeyArtwork {
-									if let value = try? await item.load(.dataValue) {
+									if let value = try? await item.load(.value) as? Data {
 										loadedAlbumArt = NSImage(data: value)
 									}
 								}

@@ -23,14 +23,14 @@ struct ContentView: View {
                 // Song Info Display
             VStack(spacing: 10) {
                 ScrollingText(
-                    text: playlistManager.currentTrack?.title ?? NSLocalizedString("No Song Playing", comment: "Message when no song is playing"),
+					text: audioPlayer.currentTrack?.title ?? NSLocalizedString("No Song Playing", comment: "Message when no song is playing"),
                     font: .title
                 )
                 .frame(height: 30)
                 .padding(.horizontal, 20)
                 .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
 
-                Text(playlistManager.currentTrack?.artist ?? "")
+				Text(audioPlayer.currentTrack?.artist ?? "")
                     .font(.headline)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
