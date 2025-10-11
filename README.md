@@ -18,6 +18,7 @@ A simple SwiftUI app for macOS to play MP3 files.
 - **Track Information**: Displays song title and artist extracted from MP3 metadata
 - **Persistent State**: Automatically saves and restores the last played track
 - **Open with Finder**: Support for opening MP3 files via Finder
+- **Album Art Background**: Displays album artwork as a blurred background when available
 - **Languages**: English and Spanish.
 
 ## Requirements

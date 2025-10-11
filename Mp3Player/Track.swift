@@ -1,16 +1,19 @@
 import Foundation
 import AVFoundation
+import AppKit
 
 struct Track: Identifiable, Equatable {
     let id = UUID()
     let url: URL
     var title: String
     var artist: String
+    var albumArt: NSImage?
     
     // Use a container class to safely pass data between concurrent contexts
     private final class MetadataContainer {
         var title: String?
         var artist: String?
+        var albumArt: NSImage?
     }
     
     init(url: URL) {
@@ -45,6 +48,10 @@ struct Track: Identifiable, Equatable {
                                 if let value = try? await item.load(.stringValue) {
                                     container.artist = value
                                 }
+                            } else if commonKey == .commonKeyArtwork {
+                                if let value = try? await item.load(.dataValue) {
+                                    container.albumArt = NSImage(data: value)
+                                }
                             }
                         }
                     }
@@ -59,9 +66,11 @@ struct Track: Identifiable, Equatable {
         
         self.title = container.title ?? defaultTitle
         self.artist = container.artist ?? defaultArtist
+        self.albumArt = container.albumArt
     }
     
     static func == (lhs: Track, rhs: Track) -> Bool {
         lhs.id == rhs.id
     }
 }
+

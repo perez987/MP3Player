@@ -7,7 +7,19 @@ struct ContentView: View {
     @StateObject private var playlistManager = PlaylistManager()
 
     var body: some View {
-        VStack(spacing: 20) {
+        ZStack {
+            // Background album art
+            if let albumArt = audioPlayer.albumArt {
+                Image(nsImage: albumArt)
+                    .resizable()
+//                    .aspectRatio(contentMode: .fill)
+//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .blur(radius: 2)
+                    .opacity(0.2)
+//                    .ignoresSafeArea()
+            }
+            
+            VStack(spacing: 20) {
                 // Song Info Display
             VStack(spacing: 10) {
                 ScrollingText(
@@ -16,11 +28,13 @@ struct ContentView: View {
                 )
                 .frame(height: 30)
                 .padding(.horizontal, 20)
+                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
 
                 Text(playlistManager.currentTrack?.artist ?? "")
                     .font(.headline)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
+                    .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
             }
             .frame(height: 80)
             .padding(.top, 20)
@@ -147,6 +161,7 @@ struct ContentView: View {
             }
             setupNotifications()
         }
+        }
     }
 
     private func setupNotifications() {
@@ -224,3 +239,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
