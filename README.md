@@ -42,7 +42,7 @@ A simple SwiftUI app for macOS to play MP3 files.
 
 ## App is damaged and can't be opened
 
-If you see `App is damaged and can't be opened` when you open MP3Player for the first time, read [this](App-damaged.md).
+If you see `App is damaged and can't be opened` when you open MP3Player for the first time, read [App-damaged.md](DOCS/App-damaged.md).
 
 ## Console Messages
 
