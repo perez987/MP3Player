@@ -1,0 +1,17 @@
+/* Menu Items */
+"Open MP3 File..." = "Open MP3 File...";
+"Open Directory..." = "Open Directory...";
+
+/* UI Elements */
+"No Song Playing" = "No Song Playing...";
+"Unknown Artist" = "Unknown Artist";
+"Directory being played: " = "Directory being played: ";
+
+/* Button Accessibility */
+"Previous" = "Previous";
+"Play" = "Play";
+"Pause" = "Pause";
+"Stop" = "Stop";
+"Next" = "Next";
+"Shuffle" = "Shuffle";
+"Play/Stop" = "Play/Stop";

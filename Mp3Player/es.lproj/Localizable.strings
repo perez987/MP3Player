@@ -1,0 +1,17 @@
+/* Menu Items */
+"Open MP3 File..." = "Abrir archivo MP3...";
+"Open Directory..." = "Abrir directorio...";
+
+/* UI Elements */
+"No Song Playing" = "No se ha cargado ninguna canción...";
+"Unknown Artist" = "Artista desconocido";
+"Directory being played: " = "Carpeta en reproducción: ";
+
+/* Button Accessibility */
+"Previous" = "Anterior";
+"Play" = "Reproducir";
+"Pause" = "Pausar";
+"Stop" = "Detener";
+"Next" = "Siguiente";
+"Shuffle" = "Aleatorio";
+"Play/Stop" = "Reproducir/Parar";
