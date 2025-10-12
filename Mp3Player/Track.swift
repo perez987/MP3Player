@@ -28,13 +28,36 @@ struct Track: Identifiable, Equatable {
             let asset = AVAsset(url: url)
             let semaphore = DispatchSemaphore(value: 0)
 
-            // Use a class to hold the result to avoid concurrency issues
-            final class ResultHolder {
-                var title: String?
-                var artist: String?
-                var albumArt: NSImage?
+            // Use a structure to hold results from async operation
+            struct MetadataResult {
+                let title: String?
+                let artist: String?
+                let albumArt: NSImage?
             }
-            let result = ResultHolder()
+            
+            // Use a class wrapper to safely share mutable state across concurrency contexts
+            final class MetadataResultBox {
+                var result: MetadataResult
+                let lock = NSLock()
+                
+                init(result: MetadataResult) {
+                    self.result = result
+                }
+                
+                func setResult(_ newResult: MetadataResult) {
+                    lock.lock()
+                    defer { lock.unlock() }
+                    result = newResult
+                }
+                
+                func getResult() -> MetadataResult {
+                    lock.lock()
+                    defer { lock.unlock() }
+                    return result
+                }
+            }
+            
+            let resultBox = MetadataResultBox(result: MetadataResult(title: nil, artist: nil, albumArt: nil))
 
             Task.detached {
                 var loadedTitle: String?
@@ -74,18 +97,17 @@ struct Track: Identifiable, Equatable {
                         // In release builds, silently fail and keep default values
                 }
                 
-                result.title = loadedTitle
-                result.artist = loadedArtist
-                result.albumArt = loadedAlbumArt
+                resultBox.setResult(MetadataResult(title: loadedTitle, artist: loadedArtist, albumArt: loadedAlbumArt))
                 semaphore.signal()
             }
 
                 // Wait for metadata to load
             semaphore.wait()
 
-            self.title = result.title ?? defaultTitle
-            self.artist = result.artist ?? defaultArtist
-            self.albumArt = result.albumArt
+            let metadataResult = resultBox.getResult()
+            self.title = metadataResult.title ?? defaultTitle
+            self.artist = metadataResult.artist ?? defaultArtist
+            self.albumArt = metadataResult.albumArt
             self.metadataLoaded = true
         }
     }
@@ -94,3 +116,4 @@ struct Track: Identifiable, Equatable {
         lhs.id == rhs.id
     }
 }
+
