@@ -13,8 +13,14 @@ struct ScrollingText: View {
 	@State private var textWidth: CGFloat = 0
 	@State private var containerWidth: CGFloat = 0
 
-		// 10-second animation cycle
-	init(text: String, font: Font = .title, animation: Animation = .linear(duration: 12).repeatForever(autoreverses: false)) {
+		// 15-second animation cycle
+        // Non-stop animation, right to left
+	init(text: String, font: Font = .title, animation: Animation = .linear(duration: 15).repeatForever(autoreverses: false)) {
+        // Non-stop animation, alternating right to left and back
+//    init(text: String, font: Font = .title, animation: Animation = .linear(duration: 15).repeatForever(autoreverses: true)) {
+        // The animation plays only once
+//    init(text: String, font: Font = .title, animation: Animation = .linear(duration: 15).repeatCount(1)) {
+        
 		self.text = text
 		self.font = font
 		self.animation = animation
