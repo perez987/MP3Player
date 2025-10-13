@@ -21,44 +21,67 @@ struct Mp3PlayerApp: App {
             // File > Open menus
         .commands {
             CommandGroup(replacing: .newItem) {
-                Button(NSLocalizedString("Open MP3 File...", comment: "Menu item to open a single MP3 file")) {
+                Button {
                     NotificationCenter.default.post(name: .openFile, object: nil)
+                } label: {
+                    Label(NSLocalizedString("Open MP3 File...", comment: "Menu item to open a single MP3 file"), systemImage: "doc.badge.plus")
                 }
                 .keyboardShortcut("o", modifiers: .command)
+                .labelStyle(.titleAndIcon)
 
-                Button(NSLocalizedString("Open Directory...", comment: "Menu item to open a directory of MP3 files")) {
+                Button {
                     NotificationCenter.default.post(name: .openDirectory, object: nil)
+                } label: {
+                    Label(NSLocalizedString("Open Directory...", comment: "Menu item to open a directory of MP3 files"), systemImage: "folder.badge.plus")
                 }
                 .keyboardShortcut("d", modifiers: .command)
+                .labelStyle(.titleAndIcon)
                 
             }
-            
-                // Play menus
+        }
+        
+            // Play menus
+        .commands {
             CommandMenu(NSLocalizedString("Play", comment: "Play menu")) {
-                Button(NSLocalizedString("Previous", comment: "Menu item to play previous track")) {
+                Button {
                     NotificationCenter.default.post(name: .playPrevious, object: nil)
+                } label: {
+                    Label(NSLocalizedString("Previous", comment: "Menu item to play previous track"), systemImage: "backward.fill")
                 }
                 .keyboardShortcut("a", modifiers: .control)
+                .labelStyle(.titleAndIcon)
                 
-                Button(NSLocalizedString("Play/Pause", comment: "Menu item to toggle play/pause")) {
+                Button {
                     NotificationCenter.default.post(name: .playTogglePlayPause, object: nil)
+                } label: {
+                    Label(NSLocalizedString("Play/Pause", comment: "Menu item to toggle play/pause"), systemImage: "playpause.fill")
                 }
                 .keyboardShortcut("p", modifiers: .control)
+                .labelStyle(.titleAndIcon)
                 
-                Button(NSLocalizedString("Stop", comment: "Menu item to stop playback")) {
+                Button {
                     NotificationCenter.default.post(name: .playStop, object: nil)
+                } label: {
+                    Label(NSLocalizedString("Stop", comment: "Menu item to stop playback"), systemImage: "stop.fill")
                 }
                 .keyboardShortcut("s", modifiers: .control)
+                .labelStyle(.titleAndIcon)
                 
-                Button(NSLocalizedString("Next", comment: "Menu item to play next track")) {
+                Button {
                     NotificationCenter.default.post(name: .playNext, object: nil)
+                } label: {
+                    Label(NSLocalizedString("Next", comment: "Menu item to play next track"), systemImage: "forward.fill")
                 }
                 .keyboardShortcut("n", modifiers: .control)
+                .labelStyle(.titleAndIcon)
                 
-                Button(NSLocalizedString("Shuffle", comment: "Menu item to toggle shuffle mode")) {
+                Button {
                     NotificationCenter.default.post(name: .playToggleShuffle, object: nil)
+                } label: {
+                    Label(NSLocalizedString("Shuffle", comment: "Menu item to toggle shuffle mode"), systemImage: "shuffle")
                 }
                 .keyboardShortcut("h", modifiers: .control)
+                .labelStyle(.titleAndIcon)
             }
         }
     }
