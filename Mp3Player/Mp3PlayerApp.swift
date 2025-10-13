@@ -46,7 +46,7 @@ struct Mp3PlayerApp: App {
                 Button {
                     NotificationCenter.default.post(name: .playPrevious, object: nil)
                 } label: {
-                    Label(NSLocalizedString("Previous", comment: "Menu item to play previous track"), systemImage: "backward.fill")
+                    Label(NSLocalizedString("Previous", comment: "Menu item to play previous track"), systemImage: "backward.circle")
                 }
                 .keyboardShortcut("a", modifiers: .control)
                 .labelStyle(.titleAndIcon)
@@ -54,7 +54,7 @@ struct Mp3PlayerApp: App {
                 Button {
                     NotificationCenter.default.post(name: .playTogglePlayPause, object: nil)
                 } label: {
-                    Label(NSLocalizedString("Play/Pause", comment: "Menu item to toggle play/pause"), systemImage: "playpause.fill")
+                    Label(NSLocalizedString("Play/Pause", comment: "Menu item to toggle play/pause"), systemImage: "playpause.circle")
                 }
                 .keyboardShortcut("p", modifiers: .control)
                 .labelStyle(.titleAndIcon)
@@ -62,7 +62,7 @@ struct Mp3PlayerApp: App {
                 Button {
                     NotificationCenter.default.post(name: .playStop, object: nil)
                 } label: {
-                    Label(NSLocalizedString("Stop", comment: "Menu item to stop playback"), systemImage: "stop.fill")
+                    Label(NSLocalizedString("Stop", comment: "Menu item to stop playback"), systemImage: "stop.circle")
                 }
                 .keyboardShortcut("s", modifiers: .control)
                 .labelStyle(.titleAndIcon)
@@ -70,7 +70,7 @@ struct Mp3PlayerApp: App {
                 Button {
                     NotificationCenter.default.post(name: .playNext, object: nil)
                 } label: {
-                    Label(NSLocalizedString("Next", comment: "Menu item to play next track"), systemImage: "forward.fill")
+                    Label(NSLocalizedString("Next", comment: "Menu item to play next track"), systemImage: "forward.circle")
                 }
                 .keyboardShortcut("n", modifiers: .control)
                 .labelStyle(.titleAndIcon)
@@ -78,7 +78,7 @@ struct Mp3PlayerApp: App {
                 Button {
                     NotificationCenter.default.post(name: .playToggleShuffle, object: nil)
                 } label: {
-                    Label(NSLocalizedString("Shuffle", comment: "Menu item to toggle shuffle mode"), systemImage: "shuffle")
+                    Label(NSLocalizedString("Shuffle", comment: "Menu item to toggle shuffle mode"), systemImage: "shuffle.circle")
                 }
                 .keyboardShortcut("h", modifiers: .control)
                 .labelStyle(.titleAndIcon)
