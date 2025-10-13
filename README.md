@@ -13,6 +13,7 @@ A simple SwiftUI app for macOS to play MP3 files.
 - **Open MP3 Files**: Open a single MP3 file to play
 - **Open Directories**: Load all MP3 files from a directory
 - **Playback Controls**: Play/Pause, Stop, Previous, Next buttons
+- **Play Menu**: Dedicated menu with keyboard shortcuts for playback controls
 - **Shuffle Mode**: Random playback of tracks
 - **Time Display**: Shows elapsed time and remaining time for current track
 - **Track Information**: Displays song title and artist extracted from MP3 metadata
@@ -32,13 +33,14 @@ A simple SwiftUI app for macOS to play MP3 files.
  	- Single File: Press `Cmd+O` or go to `File > Open MP3 File...`
 	- Directory: Press `Cmd+D` or go to `File > Open Directory...`
 
-2. Use the playback controls to:
- 	- ▶️ Play / ⏸️ Pause the current track
- 	- ⏹️ Stop playback
- 	- Skip to previous ⏪️ / next ⏩️ track
- 	- 🔀 Toggle shuffle mode.
+2. Use the Play menu or keyboard shortcuts for playback control:
+ 	- ⏪️ Previous track: `Ctrl+A` or go to `Play > Previous`
+ 	- ▶️ Play / ⏸️ Pause: `Ctrl+P` or go to `Play > Play/Pause`
+ 	- ⏹️ Stop playback: `Ctrl+S` or go to `Play > Stop`
+ 	- ⏩️ Next track: `Ctrl+N` or go to `Play > Next`
+ 	- 🔀 Toggle shuffle mode: `Ctrl+H` or go to `Play > Shuffle`
 	
-3. Rifht button on a MP3 file to open it via Finder.
+3. Right button on a MP3 file to open it via Finder.
 
 ## App is damaged and can't be opened
 

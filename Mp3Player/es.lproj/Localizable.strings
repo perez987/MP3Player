@@ -1,6 +1,20 @@
 /* Menu Items */
 "Open MP3 File..." = "Abrir archivo MP3...";
+"Menu item to open a single MP3 file" = "Abrir archivo MP3...";
 "Open Directory..." = "Abrir directorio...";
+"Menu item to open a directory of MP3 files" = "Abrir directorio...";
+"Play" = "Reproducir";
+"Play menu" = "Reproducir";
+"Previous" = "Anterior";
+"Menu item to play previous track" = "Anterior";
+"Play/Pause" = "Reproducir/Pausar";
+"Menu item to toggle play/pause" = "Reproducir/Pausar";
+"Stop" = "Detener";
+"Menu item to stop playback" = "Detener";
+"Next" = "Siguiente";
+"Menu item to play next track" = "Siguiente";
+"Shuffle" = "Aleatorio";
+"Menu item to toggle shuffle mode" = "Aleatorio";
 
 /* UI Elements */
 "No Song Playing" = "No se ha cargado ninguna canción...";

@@ -28,14 +28,14 @@ struct Track: Identifiable, Equatable {
 			let asset = AVAsset(url: url)
 			let semaphore = DispatchSemaphore(value: 0)
 
-			// Use a structure to hold results from async operation
+                // Use a structure to hold results from async operation
 			struct MetadataResult {
 				let title: String?
 				let artist: String?
 				let albumArt: NSImage?
 			}
 			
-			// Use a class wrapper to safely share mutable state across concurrency contexts
+                // Use a class wrapper to safely share mutable state across concurrency contexts
 			final class MetadataResultBox {
 				var result: MetadataResult
 				let lock = NSLock()

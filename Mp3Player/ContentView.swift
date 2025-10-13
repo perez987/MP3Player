@@ -8,29 +8,28 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            // Background album art
+                // Background album art
             if let albumArt = audioPlayer.albumArt {
                 Image(nsImage: albumArt)
                     .resizable()
-//                    .aspectRatio(contentMode: .fill)
-//                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .blur(radius: 2)
                     .opacity(0.2)
-//                    .ignoresSafeArea()
             }
             
             VStack(spacing: 20) {
                 // Song Info Display
             VStack(spacing: 10) {
-                ScrollingText(
-					text: audioPlayer.currentTrack?.title ?? NSLocalizedString("No Song Playing", comment: "Message when no song is playing"),
-                    font: .title
-                )
+                    
+                    ScrollingText(
+                        text: audioPlayer.currentTrack?.title ?? NSLocalizedString("No Song Playing", comment: "Message when no song is playing"),
+                        font: .title
+                    )
+
                 .frame(height: 30)
                 .padding(.horizontal, 20)
                 .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 1)
 
-				Text(audioPlayer.currentTrack?.artist ?? "")
+                Text(audioPlayer.currentTrack?.artist ?? "")
                     .font(.headline)
                     .foregroundColor(.secondary)
                     .lineLimit(1)
@@ -164,6 +163,7 @@ struct ContentView: View {
         }
     }
 
+        // Notifications
     private func setupNotifications() {
         NotificationCenter.default.addObserver(
             forName: .openFile,
@@ -204,8 +204,66 @@ struct ContentView: View {
                 audioPlayer.play(track: track)
             }
         }
+        
+        NotificationCenter.default.addObserver(
+            forName: .playPrevious,
+            object: nil,
+            queue: .main
+        ) { [weak playlistManager, weak audioPlayer] _ in
+            guard let playlistManager = playlistManager, let audioPlayer = audioPlayer else { return }
+            playlistManager.previous()
+            if let track = playlistManager.currentTrack {
+                audioPlayer.play(track: track)
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: .playTogglePlayPause,
+            object: nil,
+            queue: .main
+        ) { [weak playlistManager, weak audioPlayer] _ in
+            guard let playlistManager = playlistManager, let audioPlayer = audioPlayer else { return }
+            if audioPlayer.isPlaying {
+                audioPlayer.togglePlayPause()
+            } else if let track = playlistManager.currentTrack {
+                if audioPlayer.currentTrack == track {
+                    audioPlayer.togglePlayPause()
+                } else {
+                    audioPlayer.play(track: track)
+                }
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: .playStop,
+            object: nil,
+            queue: .main
+        ) { [weak audioPlayer] _ in
+            audioPlayer?.stop()
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: .playNext,
+            object: nil,
+            queue: .main
+        ) { [weak playlistManager, weak audioPlayer] _ in
+            guard let playlistManager = playlistManager, let audioPlayer = audioPlayer else { return }
+            playlistManager.next()
+            if let track = playlistManager.currentTrack {
+                audioPlayer.play(track: track)
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: .playToggleShuffle,
+            object: nil,
+            queue: .main
+        ) { [weak playlistManager] _ in
+            playlistManager?.toggleShuffle()
+        }
     }
 
+        // Open file
     private func openFilePicker() {
         let panel = NSOpenPanel()
         panel.allowsMultipleSelection = false
@@ -221,6 +279,7 @@ struct ContentView: View {
         }
     }
 
+        // Open directory
     private func openDirectoryPicker() {
         let panel = NSOpenPanel()
         panel.allowsMultipleSelection = false
@@ -239,4 +298,3 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
-
