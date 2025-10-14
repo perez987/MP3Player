@@ -13,7 +13,7 @@ struct ContentView: View {
                 Image(nsImage: albumArt)
                     .resizable()
                     .blur(radius: 2)
-                    .opacity(0.2)
+                    .opacity(0.3)
             }
             
             VStack(spacing: 20) {
