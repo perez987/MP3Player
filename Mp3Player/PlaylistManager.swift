@@ -57,16 +57,17 @@ class PlaylistManager: ObservableObject {
 			return
 		}
 
-		var mp3Files: [URL] = []
+		var audioFiles: [URL] = []
 		for case let fileURL as URL in enumerator {
-			if fileURL.pathExtension.lowercased() == "mp3" {
-				mp3Files.append(fileURL)
+			let ext = fileURL.pathExtension.lowercased()
+			if ext == "mp3" || ext == "m4a" {
+				audioFiles.append(fileURL)
 			}
 		}
 
 			// Create tracks WITHOUT loading metadata initially to avoid rate limiting
 			// Metadata will be loaded only when the track is played
-		tracks = mp3Files.sorted { $0.lastPathComponent < $1.lastPathComponent }.map { Track(url: $0, loadMetadata: false) }
+		tracks = audioFiles.sorted { $0.lastPathComponent < $1.lastPathComponent }.map { Track(url: $0, loadMetadata: false) }
 		currentIndex = 0
 
 			// Store the directory path without "file://" prefix

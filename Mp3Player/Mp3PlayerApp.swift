@@ -7,8 +7,9 @@ struct Mp3PlayerApp: App {
             ContentView()
                 .frame(minWidth: 500, idealWidth: 500, maxWidth: 500, minHeight: 350, idealHeight: 350, maxHeight: 350)
                 .onOpenURL { url in
-                    	// Handle MP3 files opened from Finder
-                    if url.pathExtension.lowercased() == "mp3" {
+                    	// Handle MP3 and M4A files opened from Finder
+                    let ext = url.pathExtension.lowercased()
+                    if ext == "mp3" || ext == "m4a" {
                         NotificationCenter.default.post(name: .openFileURL, object: url)
                     }
                 }
@@ -24,7 +25,7 @@ struct Mp3PlayerApp: App {
                 Button {
                     NotificationCenter.default.post(name: .openFile, object: nil)
                 } label: {
-                    Label(NSLocalizedString("Open MP3 File...", comment: "Menu item to open a single MP3 file"), systemImage: "doc.badge.plus")
+                    Label(NSLocalizedString("Open Audio File...", comment: "Menu item to open a single audio file"), systemImage: "doc.badge.plus")
                 }
                 .keyboardShortcut("o", modifiers: .command)
                 .labelStyle(.titleAndIcon)
@@ -32,7 +33,7 @@ struct Mp3PlayerApp: App {
                 Button {
                     NotificationCenter.default.post(name: .openDirectory, object: nil)
                 } label: {
-                    Label(NSLocalizedString("Open Directory...", comment: "Menu item to open a directory of MP3 files"), systemImage: "folder.badge.plus")
+                    Label(NSLocalizedString("Open Directory...", comment: "Menu item to open a directory of audio files"), systemImage: "folder.badge.plus")
                 }
                 .keyboardShortcut("d", modifiers: .command)
                 .labelStyle(.titleAndIcon)

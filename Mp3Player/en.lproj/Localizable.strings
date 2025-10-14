@@ -1,8 +1,8 @@
 /* Menu Items */
-"Open MP3 File..." = "Open MP3 File...";
-"Menu item to open a single MP3 file" = "Open MP3 File...";
+"Open Audio File..." = "Open Audio File...";
+"Menu item to open a single audio file" = "Open Audio File...";
 "Open Directory..." = "Open Directory...";
-"Menu item to open a directory of MP3 files" = "Open Directory...";
+"Menu item to open a directory of audio files" = "Open Directory...";
 "Play" = "Play";
 "Play menu" = "Play";
 "Previous" = "Previous";

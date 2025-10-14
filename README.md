@@ -4,21 +4,21 @@
 ![Swift](https://img.shields.io/badge/Swift-5-color=9494ff.svg)
 ![Xcode](https://img.shields.io/badge/Xcode-15.2+-lavender.svg)
 
-A simple SwiftUI app for macOS to play MP3 files.
+A simple SwiftUI app for macOS to play MP3 and M4A audio files.
 
 <img src="Images/Main-window.png" width="600px">
 
 ## Features
 
-- **Open MP3 Files**: Open a single MP3 file to play
-- **Open Directories**: Load all MP3 files from a directory
+- **Open Audio Files**: Open MP3 and M4A audio files to play
+- **Open Directories**: Load all MP3 and M4A files from a directory
+- **Play Menu**: Dedicated menu with keyboard shortcuts for all playback controls
 - **Playback Controls**: Play/Pause, Stop, Previous, Next buttons
-- **Play Menu**: Dedicated menu with keyboard shortcuts for playback controls
 - **Shuffle Mode**: Random playback of tracks
 - **Time Display**: Shows elapsed time and remaining time for current track
-- **Track Information**: Displays song title and artist extracted from MP3 metadata
+- **Track Information**: Displays song title and artist extracted from audio metadata
 - **Persistent State**: Automatically saves and restores the last played track
-- **Open with Finder**: Support for opening MP3 files via Finder
+- **Open with Finder**: Support for opening MP3 and M4A files via Finder
 - **Album Art Background**: Displays album artwork as a blurred background when available
 - **Languages**: English and Spanish.
 
@@ -30,7 +30,7 @@ A simple SwiftUI app for macOS to play MP3 files.
 ## Usage
 
 1. Use the File menu or keyboard shortcuts to open:
- 	- Single File: Press `Cmd+O` or go to `File > Open MP3 File...`
+ 	- Single File: Press `Cmd+O` or go to `File > Open Audio File...`
 	- Directory: Press `Cmd+D` or go to `File > Open Directory...`
 
 2. Use the Play menu or keyboard shortcuts for playback control:
@@ -39,8 +39,10 @@ A simple SwiftUI app for macOS to play MP3 files.
  	- ⏹️ Stop playback: `Ctrl+S` or go to `Play > Stop`
  	- ⏩️ Next track: `Ctrl+N` or go to `Play > Next`
  	- 🔀 Toggle shuffle mode: `Ctrl+H` or go to `Play > Shuffle`
+
+3. You can also use the playback control buttons in the app window.
 	
-3. Right button on a MP3 file to open it via Finder.
+4. Right-click on an MP3 or M4A file to open it via Finder.
 
 ## App is damaged and can't be opened
 

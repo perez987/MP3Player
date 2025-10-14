@@ -1,6 +1,7 @@
 
 import SwiftUI
 import AppKit
+import UniformTypeIdentifiers
 
 struct ContentView: View {
     @StateObject private var audioPlayer = AudioPlayerManager()
@@ -269,7 +270,7 @@ struct ContentView: View {
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
         panel.canChooseFiles = true
-        panel.allowedContentTypes = [.mp3]
+        panel.allowedContentTypes = [.mp3, .mpeg4Audio]
 
         if panel.runModal() == .OK, let url = panel.url {
             playlistManager.loadFile(url)

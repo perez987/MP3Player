@@ -1,10 +1,10 @@
 /* Menu Items */
-"Open MP3 File..." = "Abrir archivo MP3...";
-"Menu item to open a single MP3 file" = "Abrir archivo MP3...";
+"Open Audio File..." = "Abrir archivo de audio...";
+"Menu item to open a single audio file" = "Abrir archivo de audio...";
 "Open Directory..." = "Abrir directorio...";
-"Menu item to open a directory of MP3 files" = "Abrir directorio...";
-"Play" = "Reproducir";
-"Play menu" = "Reproducir";
+"Menu item to open a directory of audio files" = "Abrir directorio...";
+"Play" = "Reproducción";
+"Play menu" = "Reproducción";
 "Previous" = "Anterior";
 "Menu item to play previous track" = "Anterior";
 "Play/Pause" = "Reproducir/Pausar";
