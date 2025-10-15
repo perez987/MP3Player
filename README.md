@@ -20,8 +20,6 @@ A simple SwiftUI app for macOS to play MP3 and M4A audio files.
 - **Persistent State**: Automatically saves and restores the last played track
 - **Open with Finder**: Support for opening MP3 and M4A files via Finder
 - **Album Art Background**: Displays album artwork as a blurred background when available
-- **Menu Bar Icon**: Shows a music note icon in the macOS menu bar while the app is running
-- **Song Change Notifications**: Displays macOS notifications showing title and artist each time a song changes
 - **Languages**: English and Spanish.
 
 ## Requirements

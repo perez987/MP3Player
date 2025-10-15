@@ -61,13 +61,6 @@ class AudioPlayerManager: NSObject, ObservableObject {
 					self.player?.play()
 					self.isPlaying = true
 					self.startTimer()
-					
-					// Post notification for track change
-					NotificationCenter.default.post(
-						name: .trackChanged,
-						object: nil,
-						userInfo: ["track": trackWithMetadata]
-					)
 				}
 			}
 
@@ -169,5 +162,4 @@ extension AudioPlayerManager: AVAudioPlayerDelegate {
 
 extension Notification.Name {
 	static let trackFinished = Notification.Name("trackFinished")
-	static let trackChanged = Notification.Name("trackChanged")
 }

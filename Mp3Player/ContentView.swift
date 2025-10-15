@@ -2,12 +2,10 @@
 import SwiftUI
 import AppKit
 import UniformTypeIdentifiers
-import UserNotifications
 
 struct ContentView: View {
     @StateObject private var audioPlayer = AudioPlayerManager()
     @StateObject private var playlistManager = PlaylistManager()
-    @EnvironmentObject private var menuBarManager: MenuBarManager
 
     var body: some View {
         ZStack {
@@ -263,16 +261,6 @@ struct ContentView: View {
             queue: .main
         ) { [weak playlistManager] _ in
             playlistManager?.toggleShuffle()
-        }
-        
-        NotificationCenter.default.addObserver(
-            forName: .trackChanged,
-            object: nil,
-            queue: .main
-        ) { [weak menuBarManager] notification in
-            if let track = notification.userInfo?["track"] as? Track {
-                menuBarManager?.showNotification(title: track.title, artist: track.artist)
-            }
         }
     }
 
