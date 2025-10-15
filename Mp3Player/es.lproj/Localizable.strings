@@ -20,6 +20,7 @@
 "No Song Playing" = "No se ha cargado ninguna canción...";
 "Unknown Artist" = "Artista desconocido";
 "Directory being played: " = "Carpeta: ";
+"Now Playing" = "Reproduciendo ahora";
 
 /* Button Accessibility */
 "Previous" = "Anterior";

@@ -2,9 +2,12 @@ import SwiftUI
 
 @main
 struct Mp3PlayerApp: App {
+    @StateObject private var menuBarManager = MenuBarManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(menuBarManager)
                 .frame(minWidth: 500, idealWidth: 500, maxWidth: 500, minHeight: 350, idealHeight: 350, maxHeight: 350)
                 .onOpenURL { url in
                     	// Handle MP3 and M4A files opened from Finder
