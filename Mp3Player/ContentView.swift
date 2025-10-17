@@ -2,10 +2,12 @@
 import SwiftUI
 import AppKit
 import UniformTypeIdentifiers
+import UserNotifications
 
 struct ContentView: View {
     @StateObject private var audioPlayer = AudioPlayerManager()
     @StateObject private var playlistManager = PlaylistManager()
+    @EnvironmentObject private var menuBarManager: MenuBarManager
 
     var body: some View {
         ZStack {
@@ -155,6 +157,8 @@ struct ContentView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
+            // Setup menu bar after window is ready to avoid Core Graphics initialization issues
+            menuBarManager.setupMenuBar()
             playlistManager.restoreLastTrack()
             if let track = playlistManager.currentTrack {
                 audioPlayer.play(track: track)
@@ -261,6 +265,22 @@ struct ContentView: View {
             queue: .main
         ) { [weak playlistManager] _ in
             playlistManager?.toggleShuffle()
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: .trackChanged,
+            object: nil,
+            queue: .main
+        ) { [weak menuBarManager] notification in
+            // Try to extract track first (for backward compatibility)
+            if let track = notification.userInfo?["track"] as? Track {
+                menuBarManager?.showNotification(title: track.title, artist: track.artist)
+            }
+            // Fall back to extracting title and artist directly
+            else if let title = notification.userInfo?["title"] as? String,
+                    let artist = notification.userInfo?["artist"] as? String {
+                menuBarManager?.showNotification(title: title, artist: artist)
+            }
         }
     }
 

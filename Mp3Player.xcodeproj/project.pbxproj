@@ -15,6 +15,7 @@
 		A1000006000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000006000000000000001 /* Assets.xcassets */; };
 		C02537092E9825190034569A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C02537072E9825190034569A /* Localizable.strings */; };
 		D92956452E9999D300B5EEB0 /* ScrollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92956442E9999CB00B5EEB0 /* ScrollingText.swift */; };
+		D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		C025370A2E9825520034569A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C08392512E9A4009004FB72A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D92956442E9999CB00B5EEB0 /* ScrollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingText.swift; sourceTree = "<group>"; };
+		D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,11 +56,12 @@
 		A5000002000000000000001 /* Mp3Player */ = {
 			isa = PBXGroup;
 			children = (
-				C08392512E9A4009004FB72A /* Info.plist */,
 				A2000006000000000000001 /* Assets.xcassets */,
 				A2000003000000000000001 /* AudioPlayerManager.swift */,
 				A2000002000000000000001 /* ContentView.swift */,
+				C08392512E9A4009004FB72A /* Info.plist */,
 				C02537072E9825190034569A /* Localizable.strings */,
+				D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */,
 				A2000007000000000000001 /* Mp3Player.entitlements */,
 				A2000001000000000000001 /* Mp3PlayerApp.swift */,
 				A2000004000000000000001 /* PlaylistManager.swift */,
@@ -153,6 +156,7 @@
 				A1000003000000000000001 /* AudioPlayerManager.swift in Sources */,
 				A1000004000000000000001 /* PlaylistManager.swift in Sources */,
 				A1000005000000000000001 /* Track.swift in Sources */,
+				D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +304,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readonly;
@@ -326,7 +330,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = perez987.Mp3Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -343,7 +347,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readonly;
@@ -369,7 +373,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = perez987.Mp3Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
