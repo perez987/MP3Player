@@ -18,7 +18,7 @@ class AudioPlayerManager: NSObject, ObservableObject {
 		super.init()
 	}
 
-	func play(track: Track) {
+	func play(track: Track, isFromDirectory: Bool = false) {
 			// Stop accessing previous security-scoped resource if any
 		if let previousURL = currentSecurityScopedURL {
 			previousURL.stopAccessingSecurityScopedResource()
@@ -62,7 +62,7 @@ class AudioPlayerManager: NSObject, ObservableObject {
 					self.isPlaying = true
 					self.startTimer()
 					
-					// Post notification for track change
+						// Post notification for track change
 					NotificationCenter.default.post(
 						name: .trackChanged,
 						object: nil,
@@ -76,7 +76,7 @@ class AudioPlayerManager: NSObject, ObservableObject {
 			}
 
 				// Save security-scoped bookmark to UserDefaults
-			saveBookmark(for: url)
+			saveBookmark(for: url, isFromDirectory: isFromDirectory)
 
 		} catch {
 			print("Error playing track: \(error)")
@@ -88,13 +88,23 @@ class AudioPlayerManager: NSObject, ObservableObject {
 		}
 	}
 
-	private func saveBookmark(for url: URL) {
-		do {
-			let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-			UserDefaults.standard.set(bookmarkData, forKey: "lastPlayedTrackBookmark")
-			UserDefaults.standard.set(url.path, forKey: "lastPlayedTrack") // Keep for display purposes
-		} catch {
-			print("Error creating bookmark: \(error)")
+	private func saveBookmark(for url: URL, isFromDirectory: Bool) {
+			// Always save the file path for display and restoration purposes
+		UserDefaults.standard.set(url.path, forKey: "lastPlayedTrack")
+		
+			// Only create bookmarks for standalone files, not files from directories
+			// Files in directories inherit security scope from the parent directory
+			// and attempting to create bookmarks for them causes errors
+		if !isFromDirectory {
+			do {
+				let bookmarkData = try url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+				UserDefaults.standard.set(bookmarkData, forKey: "lastPlayedTrackBookmark")
+			} catch {
+				print("Error creating bookmark: \(error)")
+			}
+		} else {
+				// Clear any previous standalone file bookmark when playing from directory
+			UserDefaults.standard.removeObject(forKey: "lastPlayedTrackBookmark")
 		}
 	}
 

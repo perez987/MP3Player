@@ -68,7 +68,7 @@ struct ContentView: View {
                 Button(action: {
                     playlistManager.previous()
                     if let track = playlistManager.currentTrack {
-                        audioPlayer.play(track: track)
+                        audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
                     }
                 }) {
                     Image(systemName: "backward.fill")
@@ -85,7 +85,7 @@ struct ContentView: View {
                         if audioPlayer.currentTrack == track {
                             audioPlayer.togglePlayPause()
                         } else {
-                            audioPlayer.play(track: track)
+                            audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
                         }
                     }
                 }) {
@@ -109,7 +109,7 @@ struct ContentView: View {
                 Button(action: {
                     playlistManager.next()
                     if let track = playlistManager.currentTrack {
-                        audioPlayer.play(track: track)
+                        audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
                     }
                 }) {
                     Image(systemName: "forward.fill")
@@ -161,7 +161,7 @@ struct ContentView: View {
             menuBarManager.setupMenuBar()
             playlistManager.restoreLastTrack()
             if let track = playlistManager.currentTrack {
-                audioPlayer.play(track: track)
+                audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
             }
             setupNotifications()
         }
@@ -194,7 +194,7 @@ struct ContentView: View {
             if let url = notification.object as? URL {
                 playlistManager.loadFile(url)
                 if let track = playlistManager.currentTrack {
-                    audioPlayer.play(track: track)
+                    audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
                 }
             }
         }
@@ -206,7 +206,7 @@ struct ContentView: View {
         ) { _ in
             playlistManager.next()
             if let track = playlistManager.currentTrack {
-                audioPlayer.play(track: track)
+                audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
             }
         }
         
@@ -218,7 +218,7 @@ struct ContentView: View {
             guard let playlistManager = playlistManager, let audioPlayer = audioPlayer else { return }
             playlistManager.previous()
             if let track = playlistManager.currentTrack {
-                audioPlayer.play(track: track)
+                audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
             }
         }
         
@@ -234,7 +234,7 @@ struct ContentView: View {
                 if audioPlayer.currentTrack == track {
                     audioPlayer.togglePlayPause()
                 } else {
-                    audioPlayer.play(track: track)
+                    audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
                 }
             }
         }
@@ -255,7 +255,7 @@ struct ContentView: View {
             guard let playlistManager = playlistManager, let audioPlayer = audioPlayer else { return }
             playlistManager.next()
             if let track = playlistManager.currentTrack {
-                audioPlayer.play(track: track)
+                audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
             }
         }
         
@@ -295,7 +295,7 @@ struct ContentView: View {
         if panel.runModal() == .OK, let url = panel.url {
             playlistManager.loadFile(url)
             if let track = playlistManager.currentTrack {
-                audioPlayer.play(track: track)
+                audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
             }
         }
     }
@@ -310,7 +310,7 @@ struct ContentView: View {
         if panel.runModal() == .OK, let url = panel.url {
             playlistManager.loadDirectory(url)
             if let track = playlistManager.currentTrack {
-                audioPlayer.play(track: track)
+                audioPlayer.play(track: track, isFromDirectory: playlistManager.currentDirectoryPath != nil)
             }
         }
     }
