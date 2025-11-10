@@ -2,6 +2,7 @@ import SwiftUI
 
 @main
 struct Mp3PlayerApp: App {
+	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var menuBarManager = MenuBarManager()
     
     var body: some Scene {

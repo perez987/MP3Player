@@ -16,6 +16,7 @@
 		C02537092E9825190034569A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C02537072E9825190034569A /* Localizable.strings */; };
 		D92956452E9999D300B5EEB0 /* ScrollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92956442E9999CB00B5EEB0 /* ScrollingText.swift */; };
 		D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */; };
+		D99FB9242EC2AF3D00815849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FB9232EC2AF3800815849 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C08392512E9A4009004FB72A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D92956442E9999CB00B5EEB0 /* ScrollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingText.swift; sourceTree = "<group>"; };
 		D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
+		D99FB9232EC2AF3800815849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		A5000002000000000000001 /* Mp3Player */ = {
 			isa = PBXGroup;
 			children = (
+				D99FB9232EC2AF3800815849 /* AppDelegate.swift */,
 				A2000006000000000000001 /* Assets.xcassets */,
 				A2000003000000000000001 /* AudioPlayerManager.swift */,
 				A2000002000000000000001 /* ContentView.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D99FB9242EC2AF3D00815849 /* AppDelegate.swift in Sources */,
 				A1000002000000000000001 /* ContentView.swift in Sources */,
 				A1000001000000000000001 /* Mp3PlayerApp.swift in Sources */,
 				D92956452E9999D300B5EEB0 /* ScrollingText.swift in Sources */,
