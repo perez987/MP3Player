@@ -63,7 +63,3 @@ You may see various console messages when running the app in Xcode. Most of thes
 ## Building
 
 Open `Mp3Player.xcodeproj` in Xcode and build the project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
