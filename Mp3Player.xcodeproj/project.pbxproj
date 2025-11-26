@@ -60,16 +60,12 @@
 			children = (
 				D99FB9232EC2AF3800815849 /* AppDelegate.swift */,
 				A2000006000000000000001 /* Assets.xcassets */,
-				A2000003000000000000001 /* AudioPlayerManager.swift */,
-				A2000002000000000000001 /* ContentView.swift */,
 				C08392512E9A4009004FB72A /* Info.plist */,
-				C02537072E9825190034569A /* Localizable.strings */,
-				D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */,
+				C0A94B3A2ED6FA9B000FAD04 /* Languages */,
+				C0A94B392ED6FA4F000FAD04 /* Models */,
 				A2000007000000000000001 /* Mp3Player.entitlements */,
 				A2000001000000000000001 /* Mp3PlayerApp.swift */,
-				A2000004000000000000001 /* PlaylistManager.swift */,
-				D92956442E9999CB00B5EEB0 /* ScrollingText.swift */,
-				A2000005000000000000001 /* Track.swift */,
+				C0A94B382ED6FA44000FAD04 /* Views */,
 			);
 			path = Mp3Player;
 			sourceTree = "<group>";
@@ -80,6 +76,34 @@
 				A3000001000000000000001 /* Mp3Player.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C0A94B382ED6FA44000FAD04 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2000002000000000000001 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C0A94B392ED6FA4F000FAD04 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2000003000000000000001 /* AudioPlayerManager.swift */,
+				D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */,
+				A2000004000000000000001 /* PlaylistManager.swift */,
+				D92956442E9999CB00B5EEB0 /* ScrollingText.swift */,
+				A2000005000000000000001 /* Track.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C0A94B3A2ED6FA9B000FAD04 /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				C02537072E9825190034569A /* Localizable.strings */,
+			);
+			path = Languages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
