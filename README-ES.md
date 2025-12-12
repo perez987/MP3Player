@@ -54,7 +54,7 @@ Estoy trabajando en ello. Cualquier ayuda será bienvenida.
 
 ## La aplicación está dañada y no se puede abrir
 
-Si ves `La aplicación está dañada y no se puede abrir` cuando abres MP3Player por primera vez, lee [App-damaged-ES.md](DOCS/App-damaged-ES.md).
+Si ves `La aplicación está dañada y no se puede abrir` cuando abres MP3Player por primera vez, lee [App-damaged-ES.md](DOCS/App-damaged-es.md).
 
 ## Mensajes de consola
 
