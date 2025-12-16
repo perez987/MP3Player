@@ -16,7 +16,7 @@
 		C02537092E9825190034569A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C02537072E9825190034569A /* Localizable.strings */; };
 		D92956452E9999D300B5EEB0 /* ScrollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92956442E9999CB00B5EEB0 /* ScrollingText.swift */; };
 		D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */; };
-		D99AC3B82EF07ECF004172B2 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = D99AC3B72EF07ECF004172B2 /* AppIcon.icon */; };
+		D99AC3B82EF07ECF004172B2 /* MP3Player.icon in Resources */ = {isa = PBXBuildFile; fileRef = D99AC3B72EF07ECF004172B2 /* MP3Player.icon */; };
 		D99FB9242EC2AF3D00815849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FB9232EC2AF3800815849 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +34,7 @@
 		C08392512E9A4009004FB72A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D92956442E9999CB00B5EEB0 /* ScrollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingText.swift; sourceTree = "<group>"; };
 		D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
-		D99AC3B72EF07ECF004172B2 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppIcon.icon; sourceTree = "<group>"; };
+		D99AC3B72EF07ECF004172B2 /* MP3Player.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = MP3Player.icon; sourceTree = "<group>"; };
 		D99FB9232EC2AF3800815849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +66,7 @@
 				C0A94B3A2ED6FA9B000FAD04 /* Languages */,
 				C0A94B392ED6FA4F000FAD04 /* Models */,
 				A2000007000000000000001 /* Mp3Player.entitlements */,
-				D99AC3B72EF07ECF004172B2 /* AppIcon.icon */,
+				D99AC3B72EF07ECF004172B2 /* MP3Player.icon */,
 				A2000001000000000000001 /* Mp3PlayerApp.swift */,
 				C0A94B382ED6FA44000FAD04 /* Views */,
 			);
@@ -168,7 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D99AC3B82EF07ECF004172B2 /* AppIcon.icon in Resources */,
+				D99AC3B82EF07ECF004172B2 /* MP3Player.icon in Resources */,
 				A1000006000000000000001 /* Assets.xcassets in Resources */,
 				C02537092E9825190034569A /* Localizable.strings in Resources */,
 			);
@@ -335,7 +335,7 @@
 		AA000003000000000000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MP3Player;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -380,7 +380,7 @@
 		AA000004000000000000001 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MP3Player;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
