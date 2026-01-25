@@ -89,6 +89,26 @@ struct Mp3PlayerApp: App {
                 .labelStyle(.titleAndIcon)
             }
         }
+        
+            // Language menu
+        .commands {
+            CommandMenu(NSLocalizedString("Language", comment: "Language menu")) {
+                Button {
+                    NotificationCenter.default.post(name: .openLanguageSelector, object: nil)
+                } label: {
+                    Label(NSLocalizedString("Select Language...", comment: "Menu item to select language"), systemImage: "globe")
+                }
+                .keyboardShortcut("l", modifiers: .command)
+                .labelStyle(.titleAndIcon)
+            }
+        }
+        
+        // Language Selector Window
+        WindowGroup(id: "languageSelector") {
+            LanguageSelectorView()
+        }
+        .windowResizability(.contentSize)
+        .defaultPosition(.center)
     }
 }
 
@@ -102,4 +122,5 @@ extension Notification.Name {
     static let playStop = Notification.Name("playStop")
     static let playNext = Notification.Name("playNext")
     static let playToggleShuffle = Notification.Name("playToggleShuffle")
+    static let openLanguageSelector = Notification.Name("openLanguageSelector")
 }

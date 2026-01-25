@@ -13,6 +13,8 @@
 		A1000004000000000000001 /* PlaylistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000004000000000000001 /* PlaylistManager.swift */; };
 		A1000005000000000000001 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000005000000000000001 /* Track.swift */; };
 		A1000006000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2000006000000000000001 /* Assets.xcassets */; };
+		A1000007000000000000001 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000008000000000000001 /* LanguageManager.swift */; };
+		A1000008000000000000001 /* LanguageSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000009000000000000001 /* LanguageSelectorView.swift */; };
 		C02537092E9825190034569A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C02537072E9825190034569A /* Localizable.strings */; };
 		D92956452E9999D300B5EEB0 /* ScrollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92956442E9999CB00B5EEB0 /* ScrollingText.swift */; };
 		D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */; };
@@ -27,9 +29,14 @@
 		A2000005000000000000001 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		A2000006000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2000007000000000000001 /* Mp3Player.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mp3Player.entitlements; sourceTree = "<group>"; };
+		A2000008000000000000001 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		A2000009000000000000001 /* LanguageSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectorView.swift; sourceTree = "<group>"; };
 		A3000001000000000000001 /* Mp3Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mp3Player.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02537082E9825190034569A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C025370A2E9825520034569A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C025370B2E9825530034569A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C025370C2E9825540034569A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C025370D2E9825550034569A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C08392512E9A4009004FB72A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D92956442E9999CB00B5EEB0 /* ScrollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingText.swift; sourceTree = "<group>"; };
 		D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				A2000002000000000000001 /* ContentView.swift */,
+				A2000009000000000000001 /* LanguageSelectorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -90,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				A2000003000000000000001 /* AudioPlayerManager.swift */,
+				A2000008000000000000001 /* LanguageManager.swift */,
 				D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */,
 				A2000004000000000000001 /* PlaylistManager.swift */,
 				D92956442E9999CB00B5EEB0 /* ScrollingText.swift */,
@@ -149,6 +158,9 @@
 				en,
 				Base,
 				es,
+				de,
+				fr,
+				it,
 			);
 			mainGroup = A5000001000000000000001;
 			productRefGroup = A5000003000000000000001 /* Products */;
@@ -184,6 +196,8 @@
 				A1000003000000000000001 /* AudioPlayerManager.swift in Sources */,
 				A1000004000000000000001 /* PlaylistManager.swift in Sources */,
 				A1000005000000000000001 /* Track.swift in Sources */,
+				A1000007000000000000001 /* LanguageManager.swift in Sources */,
+				A1000008000000000000001 /* LanguageSelectorView.swift in Sources */,
 				D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +210,9 @@
 			children = (
 				C02537082E9825190034569A /* en */,
 				C025370A2E9825520034569A /* es */,
+				C025370B2E9825530034569A /* de */,
+				C025370C2E9825540034569A /* fr */,
+				C025370D2E9825550034569A /* it */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -336,7 +353,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 35;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
@@ -364,7 +381,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = perez987.Mp3Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -381,7 +398,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 32;
+				CURRENT_PROJECT_VERSION = 35;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
@@ -409,7 +426,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = perez987.Mp3Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

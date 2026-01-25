@@ -1,0 +1,42 @@
+/* Menu Items */
+"Open Audio File..." = "Apri file audio...";
+"Menu item to open a single audio file" = "Apri file audio...";
+"Open Directory..." = "Apri directory...";
+"Menu item to open a directory of audio files" = "Apri directory...";
+"Play" = "Riproduzione";
+"Play menu" = "Riproduzione";
+"Previous" = "Precedente";
+"Menu item to play previous track" = "Precedente";
+"Play/Pause" = "Riproduci/Pausa";
+"Menu item to toggle play/pause" = "Riproduci/Pausa";
+"Stop" = "Stop";
+"Menu item to stop playback" = "Stop";
+"Next" = "Successivo";
+"Menu item to play next track" = "Successivo";
+"Shuffle" = "Casuale";
+"Menu item to toggle shuffle mode" = "Casuale";
+
+/* UI Elements */
+"No Song Playing" = "Nessun brano in riproduzione...";
+"Unknown Artist" = "Artista sconosciuto";
+"Directory being played: " = "Directory: ";
+"Now Playing" = "In riproduzione";
+
+/* Button Accessibility */
+"Previous" = "Precedente";
+"Play" = "Riproduci";
+"Pause" = "Pausa";
+"Stop" = "Stop";
+"Next" = "Successivo";
+"Shuffle" = "Casuale";
+"Play/Stop" = "Riproduci/Stop";
+
+/* Language Selector */
+"Language" = "Lingua";
+"Select Language..." = "Seleziona lingua...";
+"Language Selector" = "Selettore lingua";
+"Accept" = "Accetta";
+"Cancel" = "Annulla";
+"Restart Required" = "Riavvio richiesto";
+"The application must be restarted for the language change to take effect." = "L'applicazione deve essere riavviata affinché la modifica della lingua abbia effetto.";
+"OK" = "OK";

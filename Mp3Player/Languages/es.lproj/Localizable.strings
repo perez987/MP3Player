@@ -30,3 +30,13 @@
 "Next" = "Siguiente";
 "Shuffle" = "Aleatorio";
 "Play/Stop" = "Reproducir/Parar";
+
+/* Language Selector */
+"Language" = "Idioma";
+"Select Language..." = "Seleccionar idioma...";
+"Language Selector" = "Selector de idioma";
+"Accept" = "Aceptar";
+"Cancel" = "Cancelar";
+"Restart Required" = "Reinicio requerido";
+"The application must be restarted for the language change to take effect." = "La aplicación debe reiniciarse para que el cambio de idioma surta efecto.";
+"OK" = "OK";

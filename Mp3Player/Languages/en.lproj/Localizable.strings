@@ -30,3 +30,13 @@
 "Next" = "Next";
 "Shuffle" = "Shuffle";
 "Play/Stop" = "Play/Stop";
+
+/* Language Selector */
+"Language" = "Language";
+"Select Language..." = "Select Language...";
+"Language Selector" = "Language Selector";
+"Accept" = "Accept";
+"Cancel" = "Cancel";
+"Restart Required" = "Restart Required";
+"The application must be restarted for the language change to take effect." = "The application must be restarted for the language change to take effect.";
+"OK" = "OK";
