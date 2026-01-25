@@ -16,6 +16,10 @@
 "Shuffle" = "Shuffle";
 "Menu item to toggle shuffle mode" = "Shuffle";
 
+/* Language Menu */
+"menu_language" = "Language";
+"menu_select_language" = "Select Language...";
+
 /* UI Elements */
 "No Song Playing" = "No Song Playing...";
 "Unknown Artist" = "Unknown Artist";
@@ -32,11 +36,9 @@
 "Play/Stop" = "Play/Stop";
 
 /* Language Selector */
-"Language" = "Language";
-"Select Language..." = "Select Language...";
-"Language Selector" = "Language Selector";
-"Accept" = "Accept";
-"Cancel" = "Cancel";
-"Restart Required" = "Restart Required";
-"The application must be restarted for the language change to take effect." = "The application must be restarted for the language change to take effect.";
-"OK" = "OK";
+"language_selector_title" = "Select Language";
+"accept" = "Accept";
+"cancel" = "Cancel";
+"ok" = "OK";
+"language_changed_title" = "Language Changed";
+"language_changed_message" = "Please restart the application\nto apply the new language.";

@@ -1,116 +1,109 @@
-import SwiftUI
-import AppKit
+//
+//  LanguageSelectorView.swift
+//  Mp3Player
+//
+//  Language selector view with flag emojis
+//
 
-// Helper to find the hosting window
-struct HostingWindowFinder: NSViewRepresentable {
-    var callback: (NSWindow?) -> Void
-    
-    func makeNSView(context: Context) -> NSView {
-        let view = NSView()
-        DispatchQueue.main.async { [weak view] in
-            // Ensure view is still valid and has been added to window hierarchy
-            self.callback(view?.window)
-        }
-        return view
-    }
-    
-    func updateNSView(_ nsView: NSView, context: Context) {
-        // No updates needed - window reference is captured once during initialization
+import SwiftUI
+
+struct LanguageItem: Identifiable {
+    let id: String
+    let code: String
+    let name: String
+    let flag: String
+
+    init(code: String, name: String, flag: String) {
+        self.id = code
+        self.code = code
+        self.name = name
+        self.flag = flag
     }
 }
 
 struct LanguageSelectorView: View {
-    @StateObject private var languageManager = LanguageManager.shared
+    @Environment(\.dismiss) private var dismiss
     @State private var selectedLanguage: String
     @State private var showRestartAlert = false
-    @State private var window: NSWindow?
+    private let initialLanguage: String
+
+    // Available languages sorted by code
+    private let languages: [LanguageItem] = [
+        LanguageItem(code: "de", name: "Deutsch", flag: "🇩🇪"),
+        LanguageItem(code: "en", name: "English", flag: "🇬🇧"),
+        LanguageItem(code: "es", name: "Español", flag: "🇪🇸"),
+        LanguageItem(code: "fr", name: "Français", flag: "🇫🇷"),
+        LanguageItem(code: "it", name: "Italiano", flag: "🇮🇹")
+    ]
     
-    init() {
-        _selectedLanguage = State(initialValue: LanguageManager.shared.currentLanguage)
+    private var hasLanguageChanged: Bool {
+        selectedLanguage != initialLanguage
     }
-    
+
+    init() {
+        // Load current language preference
+        let currentLang = UserDefaults.standard.stringArray(forKey: "AppleLanguages")?
+            .first?.components(separatedBy: "-").first
+            ?? Locale.current.language.languageCode?.identifier
+            ?? "en"
+        _selectedLanguage = State(initialValue: currentLang)
+        initialLanguage = currentLang
+    }
+
     var body: some View {
         VStack(spacing: 20) {
-            Text(NSLocalizedString("Language Selector", comment: "Language Selector window title"))
+            Text(NSLocalizedString("language_selector_title", comment: "Language selector title"))
                 .font(.title2)
-                .fontWeight(.semibold)
-                .padding(.top, 20)
-            
-            Divider()
-            
-            // Language list
-            VStack(alignment: .leading, spacing: 12) {
-                ForEach(Language.available) { language in
-                    Button(action: {
-                        selectedLanguage = language.code
-                    }) {
-                        HStack(spacing: 12) {
-                            Text(language.flag)
-                                .font(.title2)
-                            
-                            Text(language.name)
-                                .font(.body)
-                            
-                            Spacer()
-                            
-                            if selectedLanguage == language.code {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(.accentColor)
-                            }
-                        }
-                        .frame(width: 240)
-                        .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(
-                        selectedLanguage == language.code ?
-                        Color.accentColor.opacity(0.1) : Color.clear
-                    )
-                    .cornerRadius(8)
+                .padding(.top)
+
+            List(languages, selection: $selectedLanguage) { language in
+                HStack {
+                    Text(language.flag)
+                        .font(.title2)
+                    Text(language.name)
+                        .font(.body)
                 }
+                .tag(language.code)
+                .padding(.vertical, 4)
             }
-            .padding(.horizontal, 20)
-            
-            Divider()
-            
-            // Buttons
+            .frame(width: 222, height: 208)
+            .border(Color.gray.opacity(0.3), width: 1)
+
             HStack(spacing: 12) {
-                Button(NSLocalizedString("Cancel", comment: "Cancel button")) {
-                    window?.close()
+                Button(NSLocalizedString("cancel", comment: "Cancel button")) {
+                    dismiss()
                 }
                 .keyboardShortcut(.cancelAction)
-                
-                Button(NSLocalizedString("Accept", comment: "Accept button")) {
+
+                Button(NSLocalizedString("accept", comment: "Accept button")) {
                     // Only show alert if language actually changed
-                    if selectedLanguage != languageManager.currentLanguage {
-                        languageManager.setLanguage(selectedLanguage)
+                    if hasLanguageChanged {
+                        saveLanguagePreference()
                         showRestartAlert = true
                     } else {
-                        window?.close()
+                        dismiss()
                     }
                 }
                 .keyboardShortcut(.defaultAction)
             }
-            .padding(.bottom, 20)
+            .padding(.bottom)
         }
-        .frame(width: 340, height: 400)
-        .background(
-            HostingWindowFinder { foundWindow in
-                window = foundWindow
-            }
-        )
-        .alert(NSLocalizedString("Restart Required", comment: "Restart Required alert title"),
-               isPresented: $showRestartAlert) {
-            Button(NSLocalizedString("OK", comment: "OK button")) {
-                // Close the window using the stored reference
-                window?.close()
+        .padding()
+        .frame(width: 300)
+        .alert(
+            NSLocalizedString("language_changed_title", comment: "Language changed alert title"),
+            isPresented: $showRestartAlert
+        ) {
+            Button(NSLocalizedString("ok", comment: "OK button")) {
+                dismiss()
             }
         } message: {
-            Text(NSLocalizedString("The application must be restarted for the language change to take effect.", 
-                                 comment: "Restart message"))
+            Text(NSLocalizedString("language_changed_message", comment: "Language changed message"))
         }
+    }
+
+    private func saveLanguagePreference() {
+        UserDefaults.standard.set([selectedLanguage], forKey: "AppleLanguages")
     }
 }
 

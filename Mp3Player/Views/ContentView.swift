@@ -8,7 +8,6 @@ struct ContentView: View {
     @StateObject private var audioPlayer = AudioPlayerManager()
     @StateObject private var playlistManager = PlaylistManager()
     @EnvironmentObject private var menuBarManager: MenuBarManager
-    @Environment(\.openWindow) private var openWindow
 
     var body: some View {
         ZStack {
@@ -282,14 +281,6 @@ struct ContentView: View {
                     let artist = notification.userInfo?["artist"] as? String {
                 menuBarManager?.showNotification(title: title, artist: artist)
             }
-        }
-        
-        NotificationCenter.default.addObserver(
-            forName: .openLanguageSelector,
-            object: nil,
-            queue: .main
-        ) { _ in
-            openWindow(id: "languageSelector")
         }
     }
 

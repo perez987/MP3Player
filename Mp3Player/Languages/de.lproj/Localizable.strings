@@ -7,14 +7,18 @@
 "Play menu" = "Wiedergabe";
 "Previous" = "Zurück";
 "Menu item to play previous track" = "Zurück";
-"Play/Pause" = "Wiedergabe/Pause";
-"Menu item to toggle play/pause" = "Wiedergabe/Pause";
+"Play/Pause" = "Abspielen/Pausieren";
+"Menu item to toggle play/pause" = "Abspielen/Pausieren";
 "Stop" = "Stopp";
 "Menu item to stop playback" = "Stopp";
 "Next" = "Weiter";
 "Menu item to play next track" = "Weiter";
 "Shuffle" = "Zufällig";
 "Menu item to toggle shuffle mode" = "Zufällig";
+
+/* Language Menu */
+"menu_language" = "Sprache";
+"menu_select_language" = "Sprache auswählen...";
 
 /* UI Elements */
 "No Song Playing" = "Kein Lied wird abgespielt...";
@@ -24,19 +28,17 @@
 
 /* Button Accessibility */
 "Previous" = "Zurück";
-"Play" = "Wiedergabe";
-"Pause" = "Pause";
+"Play" = "Abspielen";
+"Pause" = "Pausieren";
 "Stop" = "Stopp";
 "Next" = "Weiter";
 "Shuffle" = "Zufällig";
-"Play/Stop" = "Wiedergabe/Stopp";
+"Play/Stop" = "Abspielen/Stopp";
 
 /* Language Selector */
-"Language" = "Sprache";
-"Select Language..." = "Sprache auswählen...";
-"Language Selector" = "Sprachauswahl";
-"Accept" = "Übernehmen";
-"Cancel" = "Abbrechen";
-"Restart Required" = "Neustart erforderlich";
-"The application must be restarted for the language change to take effect." = "Die Anwendung muss neu gestartet werden, damit die Sprachänderung wirksam wird.";
-"OK" = "OK";
+"language_selector_title" = "Sprache auswählen";
+"accept" = "Akzeptieren";
+"cancel" = "Abbrechen";
+"ok" = "OK";
+"language_changed_title" = "Sprache geändert";
+"language_changed_message" = "Bitte starten Sie die Anwendung neu,\num die neue Sprache anzuwenden.";

@@ -4,6 +4,7 @@ import SwiftUI
 struct Mp3PlayerApp: App {
 	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var menuBarManager = MenuBarManager()
+    @State private var isLanguageSelectorPresented = false
     
     var body: some Scene {
         WindowGroup {
@@ -17,11 +18,24 @@ struct Mp3PlayerApp: App {
                         NotificationCenter.default.post(name: .openFileURL, object: url)
                     }
                 }
+                .sheet(isPresented: $isLanguageSelectorPresented) {
+                    LanguageSelectorView()
+                }
         }
 
             // window resizability derived from the window’s content
             // macOS 13 Ventura or newer
         .windowResizability(.contentSize)
+
+            // Language menu
+        .commands {
+            CommandMenu(NSLocalizedString("menu_language", comment: "Language menu")) {
+                Button(NSLocalizedString("menu_select_language", comment: "Select Language menu item")) {
+                    isLanguageSelectorPresented = true
+                }
+                .keyboardShortcut("l", modifiers: .command)
+            }
+        }
 
             // File > Open menus
         .commands {
@@ -89,26 +103,6 @@ struct Mp3PlayerApp: App {
                 .labelStyle(.titleAndIcon)
             }
         }
-        
-            // Language menu
-        .commands {
-            CommandMenu(NSLocalizedString("Language", comment: "Language menu")) {
-                Button {
-                    NotificationCenter.default.post(name: .openLanguageSelector, object: nil)
-                } label: {
-                    Label(NSLocalizedString("Select Language...", comment: "Menu item to select language"), systemImage: "globe")
-                }
-                .keyboardShortcut("l", modifiers: .command)
-                .labelStyle(.titleAndIcon)
-            }
-        }
-        
-        // Language Selector Window
-        WindowGroup(id: "languageSelector") {
-            LanguageSelectorView()
-        }
-        .windowResizability(.contentSize)
-        .defaultPosition(.center)
     }
 }
 
@@ -122,5 +116,4 @@ extension Notification.Name {
     static let playStop = Notification.Name("playStop")
     static let playNext = Notification.Name("playNext")
     static let playToggleShuffle = Notification.Name("playToggleShuffle")
-    static let openLanguageSelector = Notification.Name("openLanguageSelector")
 }
