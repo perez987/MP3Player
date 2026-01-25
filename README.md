@@ -4,6 +4,10 @@
 ![Swift](https://img.shields.io/badge/Swift-5-color=9494ff.svg)
 ![Xcode](https://img.shields.io/badge/Xcode-15.2+-lavender.svg)
 
+<a href="README-ES.md">
+    <img src="https://img.shields.io/badge/Spanish-README-blue" alt=“Spanish README Docs”>
+</a><br><br>
+
 A simple SwiftUI app for macOS to play MP3 and M4A audio files.
 
 <img src="Images/Main-window.png" width="600px">

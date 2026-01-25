@@ -4,7 +4,11 @@
 ![Swift](https://img.shields.io/badge/Swift-5-color=9494ff.svg)
 ![Xcode](https://img.shields.io/badge/Xcode-15.2+-lavender.svg)
 
-Una aplicación simple de SwiftUI para macOS para reproducir archivos de audio MP3 y M4A.
+<a href="README.md">
+    <img src="https://img.shields.io/badge/English-README-blue" alt=“English README Docs”>
+</a><br><br>
+
+Una aplicación simple para macOS, hecha con SwiftUI, para reproducir archivos de audio MP3 y M4A.
 
 <img src="Images/Main-window.png" width="600px">
 
