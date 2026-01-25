@@ -69,7 +69,7 @@
 				A2000006000000000000001 /* Assets.xcassets */,
 				C08392512E9A4009004FB72A /* Info.plist */,
 				C0A94B3A2ED6FA9B000FAD04 /* Languages */,
-				C0A94B392ED6FA4F000FAD04 /* Models */,
+				C0A94B392ED6FA4F000FAD04 /* Model */,
 				A2000007000000000000001 /* Mp3Player.entitlements */,
 				A2000001000000000000001 /* Mp3PlayerApp.swift */,
 				C0A94B382ED6FA44000FAD04 /* Views */,
@@ -94,7 +94,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		C0A94B392ED6FA4F000FAD04 /* Models */ = {
+		C0A94B392ED6FA4F000FAD04 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				A2000003000000000000001 /* AudioPlayerManager.swift */,
@@ -104,7 +104,7 @@
 				D92956442E9999CB00B5EEB0 /* ScrollingText.swift */,
 				A2000005000000000000001 /* Track.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C0A94B3A2ED6FA9B000FAD04 /* Languages */ = {
