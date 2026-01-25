@@ -1,10 +1,29 @@
 import SwiftUI
 import AppKit
 
+// Helper to find the hosting window
+struct HostingWindowFinder: NSViewRepresentable {
+    var callback: (NSWindow?) -> Void
+    
+    func makeNSView(context: Context) -> NSView {
+        let view = NSView()
+        DispatchQueue.main.async { [weak view] in
+            // Ensure view is still valid and has been added to window hierarchy
+            self.callback(view?.window)
+        }
+        return view
+    }
+    
+    func updateNSView(_ nsView: NSView, context: Context) {
+        // No updates needed - window reference is captured once during initialization
+    }
+}
+
 struct LanguageSelectorView: View {
     @StateObject private var languageManager = LanguageManager.shared
     @State private var selectedLanguage: String
     @State private var showRestartAlert = false
+    @State private var window: NSWindow?
     
     init() {
         _selectedLanguage = State(initialValue: LanguageManager.shared.currentLanguage)
@@ -59,7 +78,7 @@ struct LanguageSelectorView: View {
             // Buttons
             HStack(spacing: 12) {
                 Button(NSLocalizedString("Cancel", comment: "Cancel button")) {
-                    NSApp.keyWindow?.close()
+                    window?.close()
                 }
                 .keyboardShortcut(.cancelAction)
                 
@@ -69,7 +88,7 @@ struct LanguageSelectorView: View {
                         languageManager.setLanguage(selectedLanguage)
                         showRestartAlert = true
                     } else {
-                        NSApp.keyWindow?.close()
+                        window?.close()
                     }
                 }
                 .keyboardShortcut(.defaultAction)
@@ -77,12 +96,16 @@ struct LanguageSelectorView: View {
             .padding(.bottom, 20)
         }
         .frame(width: 340, height: 400)
+        .background(
+            HostingWindowFinder { foundWindow in
+                window = foundWindow
+            }
+        )
         .alert(NSLocalizedString("Restart Required", comment: "Restart Required alert title"),
                isPresented: $showRestartAlert) {
             Button(NSLocalizedString("OK", comment: "OK button")) {
-                // Close the window using NSApp since dismiss() doesn't work for windows opened with openWindow
-                // The keyWindow should be the language selector window
-                NSApp.keyWindow?.close()
+                // Close the window using the stored reference
+                window?.close()
             }
         } message: {
             Text(NSLocalizedString("The application must be restarted for the language change to take effect.", 
