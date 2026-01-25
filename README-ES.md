@@ -22,7 +22,8 @@ Una aplicación simple de SwiftUI para macOS para reproducir archivos de audio M
 - **Abrir con Finder**: Soporte para abrir archivos MP3 y M4A a través del Finder
 - **Fondo de carátula de álbum**: Muestra la imagen de la carátula del álbum como fondo difuminado cuando está disponible
 - **Icono en la barra de menú**: Muestra un icono de nota musical en la barra de menú de macOS mientras la aplicación está en ejecución
-- **Notificaciones de cambio de canción**: Muestra notificaciones de macOS con el título y el artista cada vez que cambia una canción (macOS 15+).
+- **Notificaciones de cambio de canción**: Muestra notificaciones de macOS con el título y el artista cada vez que cambia una canción (macOS 15+)
+- **Soporte de idiomas**: Soporte para inglés, español, francés, alemán e italiano con ventana para seleccionar idioma.
 
 ## Requisitos
 
@@ -45,6 +46,12 @@ Una aplicación simple de SwiftUI para macOS para reproducir archivos de audio M
 3. También puedes usar los botones de control de reproducción en la ventana de la aplicación.
 	
 4. Haz clic derecho en un archivo MP3 o M4A para abrirlo a través del Finder.
+
+5. Barra de menús (`Idioma > Elige idioma` o teclado `⌘ + L`) para abrir la ventana del selector de idioma.
+
+## Selector de idioma
+
+![](Images/Spanish.png)
 
 ## Nota sobre las notificaciones
 

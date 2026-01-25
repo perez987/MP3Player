@@ -22,7 +22,8 @@ A simple SwiftUI app for macOS to play MP3 and M4A audio files.
 - **Open with Finder**: Support for opening MP3 and M4A files via Finder
 - **Album Art Background**: Displays album artwork as a blurred background when available
 - **Menu Bar Icon**: Shows a music note icon in the macOS menu bar while the app is running
-- **Song Change Notifications**: Displays macOS notifications showing title and artist each time a song changes (macOS 15+).
+- **Song Change Notifications**: Displays macOS notifications showing title and artist each time a song changes (macOS 15+)
+- **Language support with language selector**: Support for English, Spanish, French, German and Italian with language selector window.
 
 ## Requirements
 
@@ -44,7 +45,13 @@ A simple SwiftUI app for macOS to play MP3 and M4A audio files.
 
 3. You can also use the playback control buttons in the app window.
 	
-4. Right-click on an MP3 or M4A file to open it via Finder.
+4. Right-click on an MP3 or M4A file to open it via Finder
+
+5. Menubar (`Language > Select language` or keyboard `⌘ + L`) to open the language selector window.
+
+## Language selector
+
+![](Images/English.png)
 
 ## Note about notifications
 
