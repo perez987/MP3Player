@@ -5,7 +5,6 @@ struct LanguageSelectorView: View {
     @StateObject private var languageManager = LanguageManager.shared
     @State private var selectedLanguage: String
     @State private var showRestartAlert = false
-    @Environment(\.dismiss) private var dismiss
     
     init() {
         _selectedLanguage = State(initialValue: LanguageManager.shared.currentLanguage)
@@ -60,7 +59,7 @@ struct LanguageSelectorView: View {
             // Buttons
             HStack(spacing: 12) {
                 Button(NSLocalizedString("Cancel", comment: "Cancel button")) {
-                    dismiss()
+                    NSApp.keyWindow?.close()
                 }
                 .keyboardShortcut(.cancelAction)
                 
@@ -70,7 +69,7 @@ struct LanguageSelectorView: View {
                         languageManager.setLanguage(selectedLanguage)
                         showRestartAlert = true
                     } else {
-                        dismiss()
+                        NSApp.keyWindow?.close()
                     }
                 }
                 .keyboardShortcut(.defaultAction)
