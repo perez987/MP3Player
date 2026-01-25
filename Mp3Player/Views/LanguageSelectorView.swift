@@ -1,4 +1,5 @@
 import SwiftUI
+import AppKit
 
 struct LanguageSelectorView: View {
     @StateObject private var languageManager = LanguageManager.shared
@@ -80,7 +81,10 @@ struct LanguageSelectorView: View {
         .alert(NSLocalizedString("Restart Required", comment: "Restart Required alert title"),
                isPresented: $showRestartAlert) {
             Button(NSLocalizedString("OK", comment: "OK button")) {
-                dismiss()
+                // Close the window using NSApp since dismiss() doesn't work for windows opened with openWindow
+                if let window = NSApp.windows.first(where: { $0.title == NSLocalizedString("Language Selector", comment: "Language Selector window title") }) {
+                    window.close()
+                }
             }
         } message: {
             Text(NSLocalizedString("The application must be restarted for the language change to take effect.", 
