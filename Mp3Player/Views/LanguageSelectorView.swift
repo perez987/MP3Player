@@ -1,10 +1,10 @@
 import SwiftUI
+import AppKit
 
 struct LanguageSelectorView: View {
     @StateObject private var languageManager = LanguageManager.shared
     @State private var selectedLanguage: String
     @State private var showRestartAlert = false
-    @Environment(\.dismiss) private var dismiss
     
     init() {
         _selectedLanguage = State(initialValue: LanguageManager.shared.currentLanguage)
@@ -59,7 +59,7 @@ struct LanguageSelectorView: View {
             // Buttons
             HStack(spacing: 12) {
                 Button(NSLocalizedString("Cancel", comment: "Cancel button")) {
-                    dismiss()
+                    NSApp.keyWindow?.close()
                 }
                 .keyboardShortcut(.cancelAction)
                 
@@ -69,7 +69,7 @@ struct LanguageSelectorView: View {
                         languageManager.setLanguage(selectedLanguage)
                         showRestartAlert = true
                     } else {
-                        dismiss()
+                        NSApp.keyWindow?.close()
                     }
                 }
                 .keyboardShortcut(.defaultAction)
@@ -80,7 +80,9 @@ struct LanguageSelectorView: View {
         .alert(NSLocalizedString("Restart Required", comment: "Restart Required alert title"),
                isPresented: $showRestartAlert) {
             Button(NSLocalizedString("OK", comment: "OK button")) {
-                dismiss()
+                // Close the window using NSApp since dismiss() doesn't work for windows opened with openWindow
+                // The keyWindow should be the language selector window
+                NSApp.keyWindow?.close()
             }
         } message: {
             Text(NSLocalizedString("The application must be restarted for the language change to take effect.", 
