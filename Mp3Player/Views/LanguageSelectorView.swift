@@ -82,9 +82,8 @@ struct LanguageSelectorView: View {
                isPresented: $showRestartAlert) {
             Button(NSLocalizedString("OK", comment: "OK button")) {
                 // Close the window using NSApp since dismiss() doesn't work for windows opened with openWindow
-                if let window = NSApp.windows.first(where: { $0.title == NSLocalizedString("Language Selector", comment: "Language Selector window title") }) {
-                    window.close()
-                }
+                // The keyWindow should be the language selector window
+                NSApp.keyWindow?.close()
             }
         } message: {
             Text(NSLocalizedString("The application must be restarted for the language change to take effect.", 
