@@ -18,8 +18,6 @@
 		D92956452E9999D300B5EEB0 /* ScrollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92956442E9999CB00B5EEB0 /* ScrollingText.swift */; };
 		D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */; };
 		D99FB9242EC2AF3D00815849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FB9232EC2AF3800815849 /* AppDelegate.swift */; };
-		D9B58CD42F54E3E200EF4B88 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = D9B58CD32F54E3E200EF4B88 /* Sparkle */; };
-		D9B58CDA2F54E51700EF4B88 /* UpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B58CD92F54E51700EF4B88 /* UpdateController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +39,6 @@
 		D92956442E9999CB00B5EEB0 /* ScrollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingText.swift; sourceTree = "<group>"; };
 		D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
 		D99FB9232EC2AF3800815849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9B58CD92F54E51700EF4B88 /* UpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +46,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9B58CD42F54E3E200EF4B88 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +71,6 @@
 				A2000007000000000000001 /* Mp3Player.entitlements */,
 				A2000001000000000000001 /* Mp3PlayerApp.swift */,
 				C0A94B382ED6FA44000FAD04 /* Views */,
-				D9B58CD92F54E51700EF4B88 /* UpdateController.swift */,
 			);
 			path = Mp3Player;
 			sourceTree = "<group>";
@@ -165,9 +160,6 @@
 				it,
 			);
 			mainGroup = A5000001000000000000001;
-			packageReferences = (
-				D9B58CD22F54E3E200EF4B88 /* XCRemoteSwiftPackageReference "Sparkle" */,
-			);
 			productRefGroup = A5000003000000000000001 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,7 +192,6 @@
 				A1000001000000000000001 /* Mp3PlayerApp.swift in Sources */,
 				D92956452E9999D300B5EEB0 /* ScrollingText.swift in Sources */,
 				A1000003000000000000001 /* AudioPlayerManager.swift in Sources */,
-				D9B58CDA2F54E51700EF4B88 /* UpdateController.swift in Sources */,
 				A1000004000000000000001 /* PlaylistManager.swift in Sources */,
 				A1000005000000000000001 /* Track.swift in Sources */,
 				D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */,
@@ -358,7 +349,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 41;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
@@ -386,7 +377,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.2;
+				MARKETING_VERSION = 2.2.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = perez987.Mp3Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -403,7 +394,7 @@
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 44;
+				CURRENT_PROJECT_VERSION = 41;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
@@ -431,7 +422,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.2;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = perez987.Mp3Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -461,25 +452,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D9B58CD22F54E3E200EF4B88 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D9B58CD32F54E3E200EF4B88 /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D9B58CD22F54E3E200EF4B88 /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0000001000000000000001 /* Project object */;
 }

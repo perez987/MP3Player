@@ -35,9 +35,5 @@
 	</array>
 	<key>NSUserNotificationAlertStyle</key>
 	<string>alert</string>
-    <key>SUFeedURL</key>
-    <string>https://raw.githubusercontent.com/perez987/MP3Player/main/appcast.xml</string>
-    <key>SUPublicEDKey</key>
-    <string>ZlKWZcBX5/V65EwhgJe0G+veSzYUiYrpJZL9dLE8vjw=</string>
 </dict>
 </plist>

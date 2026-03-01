@@ -1,12 +1,10 @@
 import SwiftUI
-import Sparkle
 
 @main
 struct Mp3PlayerApp: App {
 	@NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var menuBarManager = MenuBarManager()
     @State private var isLanguageSelectorPresented = false
-    @StateObject private var updaterController = UpdaterController()
     
     var body: some Scene {
         WindowGroup {
@@ -37,21 +35,7 @@ struct Mp3PlayerApp: App {
                 }
                 .keyboardShortcut("l", modifiers: .command)
             }
-            CommandGroup(after: .appInfo) {
-                  Button(
-                      NSLocalizedString(
-                          "Check for Updates...",
-                          comment: "Menu item to check for app updates"
-                      ),
-  //                    systemImage: "square.and.arrow.down.badge.checkmark"
-                      systemImage: "arrow.triangle.2.circlepath"
-                  ) {
-                      updaterController.checkForUpdates()
-                  }
-                  .keyboardShortcut("u", modifiers: [.command])
-                  .disabled(!updaterController.canCheckForUpdates)
-              }
-          }
+        }
 
             // File > Open menus
         .commands {
