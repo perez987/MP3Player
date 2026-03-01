@@ -16,6 +16,7 @@
 		A1000007000000000000001 /* LanguageSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2000008000000000000001 /* LanguageSelectorView.swift */; };
 		C02537092E9825190034569A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C02537072E9825190034569A /* Localizable.strings */; };
 		D92956452E9999D300B5EEB0 /* ScrollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92956442E9999CB00B5EEB0 /* ScrollingText.swift */; };
+		D9705B192F54F03A0046DB8D /* GitHubUpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9705B182F54F03A0046DB8D /* GitHubUpdateChecker.swift */; };
 		D9822D1A2EA2C4CC00BDD1D1 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */; };
 		D99FB9242EC2AF3D00815849 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FB9232EC2AF3800815849 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		C025370D2E9825550034569A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C08392512E9A4009004FB72A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D92956442E9999CB00B5EEB0 /* ScrollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingText.swift; sourceTree = "<group>"; };
+		D9705B182F54F03A0046DB8D /* GitHubUpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUpdateChecker.swift; sourceTree = "<group>"; };
 		D9822D192EA2C4CC00BDD1D1 /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
 		D99FB9232EC2AF3800815849 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				C0A94B392ED6FA4F000FAD04 /* Model */,
 				A2000007000000000000001 /* Mp3Player.entitlements */,
 				A2000001000000000000001 /* Mp3PlayerApp.swift */,
+				D9705B172F54F02F0046DB8D /* Updater */,
 				C0A94B382ED6FA44000FAD04 /* Views */,
 			);
 			path = Mp3Player;
@@ -110,6 +113,14 @@
 				C02537072E9825190034569A /* Localizable.strings */,
 			);
 			path = Languages;
+			sourceTree = "<group>";
+		};
+		D9705B172F54F02F0046DB8D /* Updater */ = {
+			isa = PBXGroup;
+			children = (
+				D9705B182F54F03A0046DB8D /* GitHubUpdateChecker.swift */,
+			);
+			path = Updater;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D99FB9242EC2AF3D00815849 /* AppDelegate.swift in Sources */,
+				D9705B192F54F03A0046DB8D /* GitHubUpdateChecker.swift in Sources */,
 				A1000002000000000000001 /* ContentView.swift in Sources */,
 				A1000007000000000000001 /* LanguageSelectorView.swift in Sources */,
 				A1000001000000000000001 /* Mp3PlayerApp.swift in Sources */,
@@ -349,14 +361,14 @@
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 44;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readonly;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
 				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
@@ -377,7 +389,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = perez987.Mp3Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -394,14 +406,14 @@
 				CODE_SIGN_ENTITLEMENTS = Mp3Player/Mp3Player.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 41;
+				CURRENT_PROJECT_VERSION = 44;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_FILE_ACCESS_MUSIC_FOLDER = readonly;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
 				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
@@ -422,7 +434,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = perez987.Mp3Player;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
