@@ -46,11 +46,11 @@
 /* Update Check */
 "Check for Updates…" = "Nach Updates suchen…";
 "UpdateAvailable" = "Update verfügbar";
-"UpdateAvailableInfo" = "Xattr Editor %@ ist jetzt verfügbar. Möchten Sie es herunterladen?";
+"UpdateAvailableInfo" = "Mp3Player %@ ist jetzt verfügbar. Möchten Sie es herunterladen?";
 "DownloadUpdate" = "Update herunterladen";
 "UpdateLater" = "Später";
 "UpToDate" = "Sie sind auf dem neuesten Stand!";
-"UpToDateInfo" = "Xattr Editor %@ ist aktuell die neueste Version.";
+"UpToDateInfo" = "Mp3Player %@ ist aktuell die neueste Version.";
 "UpdateCheckError" = "Update-Prüfung fehlgeschlagen";
 "UpdateCheckFailed" = "Abrufen der Update-Informationen fehlgeschlagen.";
 "UpdateCheckNetworkError" = "Verbindung zum Update-Server nicht möglich. Bitte überprüfen Sie Ihre Internetverbindung.";
