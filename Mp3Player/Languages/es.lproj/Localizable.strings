@@ -46,7 +46,7 @@
 /* Update Check */
 "Check for Updates…" = "Buscar actualizaciones…";
 "UpdateAvailable" = "Actualización disponible";
-"UpdateAvailableInfo" = "Mp3Player %@ ya está disponible. ¿Desea descargarlo?";
+"UpdateAvailableInfo" = "Mp3Player %@ ya está disponible. ¿Deseas descargarla?";
 "DownloadUpdate" = "Descargar actualización";
 "UpdateLater" = "Más tarde";
 "UpToDate" = "¡Estás al día!";
