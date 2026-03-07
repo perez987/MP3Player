@@ -3,6 +3,7 @@
 ![Platform](https://img.shields.io/badge/macOS-13+-orange.svg?style=for-the-badge)
 ![Swift](https://img.shields.io/badge/Swift-5-color=9494ff.svg?style=for-the-badge)
 ![Xcode](https://img.shields.io/badge/Xcode-15.2+-lavender.svg?style=for-the-badge)
+
 <a href="README-ES.md">
     <img src="https://img.shields.io/badge/Spanish-README-blue.svg?style=for-the-badge" alt=“Spanish README Docs”>
 </a><br>
