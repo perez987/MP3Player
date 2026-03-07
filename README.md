@@ -6,7 +6,7 @@
 
 <a href="README-ES.md">
     <img src="https://img.shields.io/badge/Spanish-README-blue" alt=“Spanish README Docs”>
-</a><br>
+</a><br><br>
 
 A simple SwiftUI app for macOS to play MP3 and M4A audio files.
 

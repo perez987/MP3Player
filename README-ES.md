@@ -6,8 +6,7 @@
 
 <a href="README.md">
     <img src="https://img.shields.io/badge/README-inglés-blue" alt=“English README Docs”>
-</a><br>
-
+</a><br><br>
 
 Una aplicación simple para macOS, hecha con SwiftUI, para reproducir archivos de audio MP3 y M4A.
 
