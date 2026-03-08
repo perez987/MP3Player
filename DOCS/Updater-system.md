@@ -19,7 +19,7 @@ The same check is available programmatically for automatic background checks on 
 | Network error | *Update Check Failed* | "Unable to connect to the update server. Please check your internet connection." |
 | API / parsing error | *Update Check Failed* | "Failed to retrieve update information." |
 
-When an update is available, clicking **Download Update** opens the [releases page](https://github.com/perez987/MP3Player/releases) in the default browser. Clicking **Later** dismisses the alert without any action.
+When an update is available, clicking **Download Update** opens the releases page in the default browser. Clicking **Later** dismisses the alert without any action.
 
 ## Version Routing Logic
 
