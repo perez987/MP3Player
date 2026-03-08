@@ -28,7 +28,7 @@ A simple SwiftUI app for macOS to play MP3 and M4A audio files.
 - **Menu Bar Icon**: Shows a music note icon in the macOS menu bar while the app is running
 - **Song Change Notifications**: Displays macOS notifications showing title and artist each time a song changes (macOS 15+)
 - **Language support**: Support for English, Spanish, French, German and Italian with language selector window
-- **Built-in update checker** that queries the GitHub Releases API to detect newer versions of the application. It has no third-party dependencies (no Sparkle or similar framework required); [more info](DOCS/Updater-system.md).
+- **Built-in update checker** that queries the GitHub Releases API to detect newer versions of the application. It has no third-party dependencies (no Sparkle or similar framework required) ([more info](DOCS/Updater-system.md)).
 
 
 ## Requirements

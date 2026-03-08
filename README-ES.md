@@ -28,7 +28,7 @@ Una aplicación simple para macOS, hecha con SwiftUI, para reproducir archivos d
 - **Icono en la barra de menú**: Muestra un icono de nota musical en la barra de menú de macOS mientras la aplicación está en ejecución
 - **Notificaciones de cambio de canción**: Muestra notificaciones de macOS con el título y el artista cada vez que cambia una canción (macOS 15+)
 - **Soporte de idiomas**: Soporte para inglés, español, francés, alemán e italiano con ventana para seleccionar idioma
-- **Comprobar actualizaciones**: utiliza la API GitHub Releases para detectar versiones nuevas de la aplicación. No depende de Sparkle o de otros sistemas de terceras partes. [Más información](DOCS/Updater-system.md).
+- **Comprobar actualizaciones**: utiliza la API GitHub Releases para detectar versiones nuevas de la aplicación. No depende de Sparkle o de otros sistemas de terceras partes ([más información](DOCS/Updater-system.md)).
 
 ## Requisitos
 
