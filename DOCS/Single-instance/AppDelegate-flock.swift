@@ -2,10 +2,8 @@ import Foundation
 import AppKit
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    // MARK: - Only one instance of the app should be allowed to run at a time
-    // Launching a duplicate instance should bring the existing one
-    // to the foreground and exit immediately.
+
+    // MARK: - Only one instance of the application at a time
 
     // Holds the lock file descriptor for the lifetime of the app.
     // The OS releases the lock automatically when the process exits.
